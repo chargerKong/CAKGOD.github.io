@@ -28,30 +28,19 @@
  replay-btn" aria-hidden="true"></i></a>
     <div class="post-title">
         <p>
-            git使用总结
+            python使用总结
         </p>
         <hr>
     </div>
     <div class="post-content">
-        <h1 id="git-使用总结"><a href="#git-使用总结" class="headerlink" title="git 使用总结"></a>git 使用总结</h1><ul>
-<li><p><code>git log --stat</code>的使用</p>
-<p>1、显示最近一次被修改文件的修改：统计信息，添加或删除了多少行。</p>
-<p><code>git log -1 --stat</code></p>
-<p>2、显示最近两条的修改</p>
-<p><code>git log --stat -2</code></p>
-<p>3、显示具体的修改</p>
-<p><code>git log -p -2</code></p>
-<p>4、显示用户为<code>czd</code>的修改</p>
-<p><code>git log --stat --author=czd</code></p>
-<p>5、查看单个文件<code>sensor-dev.c</code>最近三次修改的记录</p>
-<p><code>git log --stat -3 drivers/input/sensors/sensor-dev.c</code></p>
-<p>6、如果想不分页输出全部log日志</p>
-<p><code>git --no-pager log</code></p>
-</li>
-<li><p>当使用<code>git --no-pager log --stat &gt;&gt; temp.txt</code>出现以下报错信息时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">warning: inexact rename detection was skipped due to too many files.</span><br><span class="line">warning: you may want to set your diff.renameLimit variable to at least 6567 and retry the command.</span><br></pre></td></tr></table></figure>
-<p>修改git的<code>diff.renameLimit</code>变量值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config diff.renameLimit 2000000</span><br></pre></td></tr></table></figure>
+        <h1 id="python使用总结"><a href="#python使用总结" class="headerlink" title="python使用总结"></a>python使用总结</h1><ul>
+<li></li>
+<li><p>python执行ubuntu terminal命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os                                                        </span><br><span class="line">os.system(&#39;&lt;ubuntu 命令&gt;&#39;)</span><br></pre></td></tr></table></figure>
+<p>在执行ubuntu terminal命令时，如果需要切换路径：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.chdir(&#39;&lt;路径名称&gt;&#39;)</span><br></pre></td></tr></table></figure>
+
+
 </li>
 </ul>
 
