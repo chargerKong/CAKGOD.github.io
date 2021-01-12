@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        Hexo
+    </title>
+    <meta name="description" content= working >
+    <meta name="keywords" content= Blog,Hexo,Theme,刘训灼,LiuXunzhuo >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            keyword_extraction
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h1 id="关键词提取"><a href="#关键词提取" class="headerlink" title="关键词提取"></a>关键词提取</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>关键字提取(又称关键字检测或关键字分析)是一种文本分析技术，可以自动从文本中提取最常用、最重要的单词和表达式，它有助于总结文本内容和识别讨论的主要话题。  </p>
+<p>文本分析使用带有自然语言处理(NLP)的机器学习人工智能(AI)来分解人类语言，使其能够被机器理解和分析。关键字分析可以从各种文本中找到关键字：常规文件和商业报告，社交媒体评论，在线论坛和评论，新闻报道，等等。假设您想分析关于您的产品的数千条在线评论。关键字提取可以帮助您筛选整个数据集，并在几秒钟内获得最适合描述每个评论的词。通过这种方式，您可以很容易地自动地看到您的客户最经常提到的内容，从而为您的团队节省数小时的手工处理时间。</p>
+<p>有一些免费的词云生成器可以比较直观地体现关键词，例如<a target="_blank" rel="noopener" href="https://monkeylearn.com/blog/word-art/">Word clouds</a>。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li><p>Simple Statistical Approaches</p>
+<p>主要包括词频、词搭配和共现、TF-IDF(术语频率反向文档频率的缩写)和RAKE(快速自动关键字提取)，基于统计的方法只依赖于统计数据，可能会忽略那些只被提到一次但仍然应该被认为是相关的相关单词或短语。</p>
+<p>1、词频</p>
+<p>词频包括列出在一篇文章中重复次数最多的单词和短语。这对于很多目的都很有用，从在一组产品评审中识别反复出现的术语，到发现客户支持交互中最常见的问题。然而，词频方法认为文档只是一个“单词袋”，而不考虑与含义、结构、语法和单词序列相关的关键方面。例如，这种关键字提取方法无法检测到同义词，从而忽略了非常有价值的信息。</p>
+<p>2、单词搭配和共现</p>
+<p>也被称为N-gram统计，单词搭配和共现有助于理解文本的语义结构，并将多个单词算作一个单词。<br>搭配是指经常放在一起的词。最常见的搭配类型是bi-grams(两个相邻的词，如“客户服务”、“视频电话”或“电子邮件通知”)和trig(三个词组成的组，如“易于使用”或“社交媒体渠道”)。<br>另一方面，共现现象是指在同一语料库中倾向于共现的单词。它们不一定是相邻的，但它们在语义上确实具有相似性。</p>
+<p>3、TF-IDF</p>
+<p>TF-IDF表示词频-逆文档频率，用来衡量文档集合中一个单词对文档的重要性。<br>该度量计算单词在文本中出现的次数(术语频率)，并将其与逆向文档频率(该单词在整个数据集中的罕见或常见程度)进行比较，将这两个量相乘就提供了文档中单词的TF-IDF分数。分数越高，这个词就越与文档相关。<br>当涉及到关键字提取时，这个指标可以帮助您识别文档中最相关的词(得分较高的词)，并将它们视为关键词。</p>
+<p>4、RAKE</p>
+<p>快速自动关键字提取(RAKE)是一种著名的关键字提取方法，它使用stopwords和短语分隔符列表来检测一段文本中最相关的单词或短语，以以下文本为例:<br><em>Keyword extraction is not that difficult after all. There are many libraries that can help you with keyword extraction. Rapid automatic keyword extraction is one of those.</em><br>该方法所做的第一件事是将文本拆分为一个单词列表，并从该列表中删除stopwords。这将返回一个所谓内容词的列表。<br>假设我们的stopwords和短语分隔符列表如下:<br>stopwords = [is, not, that, there, are, can, you, with, of, those, after, all, one]</p>
+<p>分隔符=[., ,]<br>然后，我们的8个内容词的列表将像这样:<br>content_words =[keyword, extraction, difficult, many, libraries, help, rapid, automatic]<br>然后，该算法以短语分隔符和停止词分隔文本，以创建候选表达式。所以，候选人的关键短语如下:<br><em>Keyword extraction is not that difficult after all. There are many libraries that can help you with keyword extraction. Rapid automatic keyword extraction is one of those.</em><br>一旦文本被分割，该算法就会创建一个单词共现矩阵。每一行显示一个给定的内容词与候选短语中每个其他内容词共现的次数。对于上面的例子，矩阵看起来像这样:</p>
+<p><img src="https://monkeylearn.com/static/74b6799b8c44da2b1c0d2eb7f9fe27df/f3e6b/rake-matrix.png" alt="RAKE Matrix"></p>
+<p>在这个矩阵建立之后，单词会得到一个分数。这一点可以计算为一个词的程度在矩阵(即共生的数量的总和词与其他词在文本内容),随着词频的次数(即这个词出现在文本),或作为其频率除以这个词的程度。<br>如果我们计算每个单词的学位分数除以频率分数，它们看起来会像这样:</p>
+<p><img src="https://monkeylearn.com/static/996e4b1308bd28ed6d4d726a2d051b28/2cbcd/rake-frequency-score.png" alt="RAKE frequency score"></p>
+<p>这些表达式也会给出一个分数，这个分数是每个单词的分数之和。如果我们要计算上面粗体部分的得分，它们会是这样的:</p>
+<p><img src="https://monkeylearn.com/static/d7794d12e177691b52b6f24fecd98adc/1b198/rake-phrases.png" alt="RAKE phrases"></p>
+<p>如果两个关键字或关键字短语以相同的顺序同时出现两次以上，不管关键字短语在原始文本中包含多少stopwords，都会创建一个新的关键字短语。该关键字的得分计算方式与单个关键字的得分计算方式相同。<br>如果一个关键字或关键字短语的分数属于top T分数，其中T是您想要提取的关键字的数目，则选择该关键字或关键字短语。根据<a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/227988510_Automatic_Keyword_Extraction_from_Individual_Documents">原始论文</a>，T默认了文件中三分之一的内容词。<br>对于上面的示例，该方法将返回前3个关键字，根据我们定义的分数，这将是rapid automatic keyword extraction(13.33)、keyword extraction(5.33)和many libraries(4.0)。</p>
+</li>
+<li><p>语言学方法</p>
+<p>关键词提取方法通常利用关于文本及其包含的单词的语言信息。有时，使用词法或句法信息(例如单词的词性或句子的依赖语法表示中单词之间的关系)来确定应该提取哪些关键字。在某些情况下，某些PoS会得到更高的分数(例如名词和名词短语)，因为它们通常比其他类别包含更多关于文本的信息。</p>
+</li>
+<li><p>图论方法</p>
+<p>基于图的关键字提取的基本思想总是相同的:根据从图的结构中获取的一些信息来度量顶点的重要性，从而提取最重要的顶点。<br>一旦建立了一个图，就该确定如何度量顶点的重要性了。有许多不同的选择，其中大部分在本文中处理。有些方法选择测量顶点的度数。<br>顶点的度等于边的数量或连接顶点的土地(也称为度)+边的数量开始的顶点(也称为度)除以最大度(=图的顶点数- 1)。这个公式来计算一个顶点的度:</p>
+<p><strong>Dv = (Dvin + Dvout) / (N - 1)</strong></p>
+<p><img src="https://monkeylearn.com/static/b140909a8a4315b075d71be77daa76ce/61b91/graph-with-degree%402x.png" alt="Numeric graph with degree"></p>
+<p>其他一些方法测量到一个给定顶点的直接顶点的数量(称为邻域大小)。</p>
+<p><img src="https://monkeylearn.com/static/f48741f2f58f80d67ba4333c05113ed3/6648e/graph-with-neighborhood-size%402x.png" alt="Numeric graph with neighborhood size"></p>
+<p>无论选择的度量是什么，每个顶点都会有一个分数，它将决定是否将其作为关键字提取。<br>以以下文本为例:<br><em>Automatic1 graph-based2 keyword3 extraction4 is pretty5 straightforward6. A document7 is represented8 as a graph9 and a score10 is given11 to each of the vertices12 in the graph13. Depending14 on the score15 of a vertex16, it might be chosen17 as a keyword18.</em><br>如果我们衡量社区大小上面的示例图的依赖性只包含有实词(编号1 - 18在文本),提取的关键词会被自动等基于关键字提取自附近的大小头名词提取(等于3/17)是最高的。</p>
+</li>
+<li><p>机器学习方法</p>
+<p>1、条件随机域<br>条件随机场(CRF)是一种统计方法，通过对文本中出现的单词序列的不同特征进行加权来学习模式。这种方法考虑上下文和不同变量之间的关系，以便作出预测。<br>使用条件随机场允许您创建复杂和丰富的模式。这种方法的另一个优点是它的泛化能力:一旦模型用某个领域的例子进行了训练，它就可以很容易地将它所学到的知识应用到其他领域。<br>缺点是，为了使用条件随机场，您需要有很强的计算能力来计算所有单词序列的所有特征的权重。</p>
+<p>评估关键字提取器的性能<br>在评估关键字提取器的性能时，您可以使用机器学习中的一些标准指标:准确性、精度、召回率和F1分数。然而，这些指标并不能反映部分匹配;他们只考虑所提取的片段与该标记的正确预测之间的完美匹配。<br>幸运的是，还有一些其他指标能够捕获部分匹配。一个例子就是ROUGE。<br>ROUGE(面向回忆的基sting评价替补研究)是一组比较源文本和提取词之间不同参数(如重叠词的数量)的指标。参数包括序列的长度和数目，可以手动定义。</p>
+</li>
+<li><p>混合方法</p>
+<p>混合之前的方法。</p>
+</li>
+</ul>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: CAKGOD | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">Page Views: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">Unique Visitors: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="NOsswOncKgc8HOxqo9oxIWlX-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="z1FihjWEbS8uIfUQdmCtK7zz">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
