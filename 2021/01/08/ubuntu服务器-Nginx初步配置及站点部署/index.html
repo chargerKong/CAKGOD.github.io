@@ -35,18 +35,26 @@
     <div class="post-content">
         <h1 id="ubuntu服务器-Nginx初步配置及站点部署"><a href="#ubuntu服务器-Nginx初步配置及站点部署" class="headerlink" title="ubuntu服务器-Nginx初步配置及站点部署"></a>ubuntu服务器-Nginx初步配置及站点部署</h1><ul>
 <li><p>使用SSH远程登录服务器  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@***.***.***.***</span><br></pre></td></tr></table></figure></li>
+<pre><code>ssh root@***.***.***.***</code></pre>
+</li>
 <li><p>安装Nginx并启动服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install nginx</span><br><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure></li>
+<pre><code>apt update
+apt install nginx
+systemctl start nginx</code></pre>
+</li>
 <li><p>将项目上传到服务器  </p>
 <p>可以选择本地上传或者 github clone。  </p>
 </li>
 <li><p>编辑默认的default <code>root /var</code>默认路径，并将代码移动至路径下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;nginx&#x2F;sites-available</span><br><span class="line">vim default</span><br><span class="line">(rewrite) root &#x2F;var&#x2F;www&#x2F;sites</span><br><span class="line">cd &#x2F;var&#x2F;www</span><br><span class="line">mv &lt;code path&gt; sites</span><br></pre></td></tr></table></figure></li>
+<pre><code>cd /etc/nginx/sites-available
+vim default
+(rewrite) root /var/www/sites
+cd /var/www
+mv &lt;code path&gt; sites</code></pre>
+</li>
 <li><p>检测nginx配置文件，重启nginx服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
-
-
+<pre><code>nginx -t
+service nginx restart</code></pre>
 </li>
 </ul>
 

@@ -38,39 +38,51 @@
 </ul>
 <ol>
 <li>Git 是目前世界上最先进的分布式版本控制系统（没有之一）,使用 Git 的目的是为了将网站从本地提交上服务器（GitHub）上面去。具体的 Git 操作细节可以查看<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的教程</a>，讲的十分详细。  </li>
-<li>在终端进行操作，设置 user.name 和 user.email 配置信息，为了方便推荐设置为全局。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub账号名称&quot;</span><br><span class="line">git config --global user.email &quot;GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure></li>
+<li>在终端进行操作，设置 user.name 和 user.email 配置信息，为了方便推荐设置为全局。  <pre><code>git config --global user.name &quot;GitHub账号名称&quot;
+git config --global user.email &quot;GitHub注册邮箱&quot;</code></pre>
+</li>
 </ol>
 <p>** 通过注册的邮箱生成 ssh 密钥文件：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+<pre><code>ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;</code></pre>
 <p>直接三个回车，默认不需要设置密码。最后得到了两个文件： <code>id_rsa</code> 和 <code>id_rsa.pub</code>。打开 <code>id_rsa.pub</code> 文件，将里面的内容全部复制到 Github 上。添加 <code>SSH key</code> 后，进行测试。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<pre><code>ssh -T git@github.com</code></pre>
 <p>你将会看到：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &#39;github.com (207.97.227.239)&#39; can&#39;t be established.</span><br><span class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line">Are you sure you want to continue connecting (yes&#x2F;no)?</span><br></pre></td></tr></table></figure>
+<pre><code>The authenticity of host &#39;github.com (207.97.227.239)&#39; can&#39;t be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)?</code></pre>
 <p>选择<code>yes</code>后  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi ***! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+<pre><code>Hi ***! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>
 <ol start="3">
 <li>新建一个 Github 仓库，仓库名为：<code>&lt;github账号名称&gt;.github.io</code></li>
 </ol>
 <ul>
-<li>安装Node.js<br>可以根据自己的系统自行搜索安装方法，ubuntu 上的安装方法为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure></li>
+<li>安装Node.js<br>可以根据自己的系统自行搜索安装方法，ubuntu 上的安装方法为：<pre><code>sudo apt-get install nodejs</code></pre>
+</li>
 <li>安装并配置 Hexo  </li>
 </ul>
 <ol>
-<li>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
-<li>初始化博客  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init myBlog</span><br></pre></td></tr></table></figure></li>
-<li>进入<code>myBlog</code>文件夹中，输入  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-或者<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure></li>
-<li>打开浏览器输入地址：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:4000</span><br></pre></td></tr></table></figure>
+<li>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。  <pre><code>sudo npm install -g hexo-cli</code></pre>
+</li>
+<li>初始化博客  <pre><code>hexo init myBlog</code></pre>
+</li>
+<li>进入<code>myBlog</code>文件夹中，输入  <pre><code>hexo server</code></pre>
+或者<pre><code>hexo s</code></pre>
+</li>
+<li>打开浏览器输入地址：<pre><code>localhost:4000</code></pre>
 这样就可以看见博客了。  </li>
-<li>添加文章<br>(1) 可以将你平时写的文章直接导入到 <code>_posts</code> 文件夹里，注意文章类型得是 <code>md</code> 格式。<br>(2) 可以写新文章，执行以下命令  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<li>添加文章<br>(1) 可以将你平时写的文章直接导入到 <code>_posts</code> 文件夹里，注意文章类型得是 <code>md</code> 格式。<br>(2) 可以写新文章，执行以下命令  <pre><code>hexo new [layout] &lt;title&gt;</code></pre>
 可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。  </li>
-<li>生成静态网页  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
-或者<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></li>
+<li>生成静态网页  <pre><code>hexo generate</code></pre>
+或者<pre><code>hexo g</code></pre>
+</li>
 </ol>
 <ul>
-<li>将网页部署到 Github 上<br>Hexo 提供了快速方便的一键部署功能，只需一条命令就能将网站部署到服务器上。在开始之前，必须先在 <code>_config.yml</code> 中修改参数，一个正确的部署配置中至少要有 <code>type</code> 参数，例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;***&#x2F;***.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-之后输入以下命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-或者<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<li>将网页部署到 Github 上<br>Hexo 提供了快速方便的一键部署功能，只需一条命令就能将网站部署到服务器上。在开始之前，必须先在 <code>_config.yml</code> 中修改参数，一个正确的部署配置中至少要有 <code>type</code> 参数，例如：<pre><code>deploy:
+type: git
+repo: https://github.com/***/***.github.io
+branch: master</code></pre>
+之后输入以下命令：<pre><code>hexo deploy</code></pre>
+或者<pre><code>hexo d</code></pre>
 稍等片刻，网站就已经部署好了，可以在浏览器输入 <code>***.github.io</code>，这样一个免费的博客就已经搭建好了。</li>
 <li>选择主题<br>Hexo 默认的主题比较一般，可以在<a target="_blank" rel="noopener" href="https://hexo.io/themes/index.html">Hexo的主题网站</a>进行主题的挑选更换。将下好的主题安放在themes文件夹内，同时在<code>_config.yml</code>中进行主题修改就好了。一般每个主题都会有比较详细的说明文档，按照文档进行修改即可。</li>
 </ul>

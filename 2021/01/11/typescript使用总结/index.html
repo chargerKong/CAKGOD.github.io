@@ -36,20 +36,20 @@
         <h1 id="Type-Script使用总结"><a href="#Type-Script使用总结" class="headerlink" title="Type Script使用总结"></a>Type Script使用总结</h1><ul>
 <li>安装<code>typescript</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install npm</span><br><span class="line">sudo npm install -g typescript</span><br></pre></td></tr></table></figure>
+<pre><code>sudo apt install npm
+sudo npm install -g typescript</code></pre>
 <p>通过<code>tsc</code>命令确认安装完成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc -v</span><br></pre></td></tr></table></figure>
+<pre><code>tsc -v</code></pre>
 <ul>
 <li>运行<code>ts</code>文件</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tsc ***.ts &#x2F;&#x2F; 得到***.js文件</span><br><span class="line">node ***.js &#x2F;&#x2F; 使用node命令执行js文件</span><br></pre></td></tr></table></figure>
+<pre><code>tsc ***.ts // 得到***.js文件
+node ***.js // 使用node命令执行js文件</code></pre>
 <ul>
 <li><p>运行<code>ts</code>文件出现以下错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cannot find module &#39;fs&#39;</span><br></pre></td></tr></table></figure>
+<pre><code>Cannot find module &#39;fs&#39;</code></pre>
 <p>执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install @types&#x2F;node</span><br></pre></td></tr></table></figure>
-
-
+<pre><code>sudo npm install @types/node</code></pre>
 </li>
 </ul>
 
