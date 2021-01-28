@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        CAKGOD
+    </title>
+    <meta name="description" content= 欢迎访问CAKGOD的辣鸡网站！！！ >
+    <meta name="keywords" content= Blog,Hexo,Theme,CAKGOD >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            k-core算法
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h1 id="k-core算法"><a href="#k-core算法" class="headerlink" title="k-core算法"></a>k-core算法</h1><p>在图论中，k-degenerate（k简并）图是一种每个子图都有一个度不超过k的顶点的无向图，即子图中的某个顶点接触子图的k条或更少的边。图的degeneracy（简并度）是k简并的k的最小值。图的简并度是对它的稀疏程度的度量，并且是在其他稀疏度量的常数因子内，例如图的树状度。</p>
+<p>简并度也被称为k-core数（num）、宽度（width）、和连锁（linkage），本质上与着色数（coloring number）或Szekeres-Wilf number（以Szekeres和Wilf(1968)命名）相同。k简并图也被称为k-inductive（k归纳）图。图的简并度可以通过反复删除最小度顶点的算法在线性时间内计算。去掉所有小于k度的顶点后剩下的连通分量称为图的k-cores（k核），图的简并度为具有k核的k的最大值。</p>
+<p>如图所示是一张2-core图，每个顶点在其左边最多有两个邻居，因此任何子图的最右顶点的度最多为2。它的2核，即反复删除度数小于2的顶点后剩下的子图，是阴影的。</p>
+<p>正如Matula &amp; Beck（1983）所描述的，在线性时间内，通过使用一个桶队列反复寻找并移除最小度的顶点，可以找到优化排序着色数的有限图G的顶点排序。那么简并度就是任何顶点在被移除时的最高度。设图中的节点数为n。更详细地说，该算法是这样进行的：</p>
+<ul>
+<li>初始化一个输出列表L。</li>
+<li>对G中的每个顶点v计算一个数字dv，即v不存在于l中的邻居数。最初，这些数字只是顶点的度数。</li>
+<li>初始化一个数组D，使D[i]包含一个不在L中dv = i的顶点v的列表。</li>
+<li>将k初始化为0。</li>
+<li>重复n次:<ul>
+<li>扫描阵列单元D[0]， D[1]，…直到找到一个D[i]非空的i为止。</li>
+<li>从D[i]中选择一个顶点v。在L的开头加上v，然后从D[i]中删除v。</li>
+<li>对于v的每一个未在L中的相邻w，从dw中减去1，然后将w移到对应dw新值的D单元中。</li>
+</ul>
+</li>
+</ul>
+<p>在算法的最后，k包含G的简并性，L包含一个顶点列表，该顶点以最优的着色数排序。G的i核是L的前缀，由k先取大于等于i的值后添加到L的顶点组成。初始化变量L, dv, D和k可以很容易地在线性时间内完成。查找每个连续移除的顶点v，并调整包含v的邻居的D的单元，所花费的时间与该步骤dv的值成正比；但是这些值的总和就是图上的边的数量(每条边对后面的顶点的总和都有贡献)，所以总时间是线性的。</p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: Your Name | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">Page Views: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">Unique Visitors: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="NOsswOncKgc8HOxqo9oxIWlX-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="z1FihjWEbS8uIfUQdmCtK7zz">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
