@@ -28,50 +28,22 @@
  replay-btn" aria-hidden="true"></i></a>
     <div class="post-title">
         <p>
-            python使用总结
+            SVD奇异值分解
         </p>
         <hr>
     </div>
     <div class="post-content">
-        <h1 id="python使用总结"><a href="#python使用总结" class="headerlink" title="python使用总结"></a>python使用总结</h1><ul>
-<li><p>python numpy real函数</p>
-<p>用法：</p>
-<pre><code class="python">numpy.real(val)</code></pre>
-<p>返回复杂参数的实部。</p>
-<table>
-<thead>
-<tr>
-<th>参数：</th>
-<th><strong>val**</strong>：** ： array_like输入数组。</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>返回值：</td>
-<td><strong>out**</strong>：** ： ndarray或标量复杂参数的实际组成部分。如果val是实数，则将val的类型用于输出。如果val具有复杂元素，则返回的类型为float。</td>
-</tr>
-</tbody></table>
-<p>例子：</p>
-<pre><code class="python">&gt;&gt;&gt; a = np.array([1+2j, 3+4j, 5+6j])
-&gt;&gt;&gt; a.real
-array([1.,  3.,  5.])
-&gt;&gt;&gt; a.real = 9
-&gt;&gt;&gt; a
-array([9.+2.j,  9.+4.j,  9.+6.j])
-&gt;&gt;&gt; a.real = np.array([9, 8, 7])
-&gt;&gt;&gt; a
-array([9.+2.j,  8.+4.j,  7.+6.j])
-&gt;&gt;&gt; np.real(1 + 1j)
-1.0</code></pre>
-<p>源码：</p>
-<p><strong>numpy.real的API实现见：</strong>[<a target="_blank" rel="noopener" href="https://vimsky.com/cache/index.php?source=https://github.com/numpy/numpy/blob/v1.17.0/numpy/lib/type_check.py">源代码]</a></p>
-</li>
-<li><p>python执行ubuntu terminal命令</p>
-<pre><code>import os                                                        
-os.system(&#39;&lt;ubuntu 命令&gt;&#39;)</code></pre>
-<p>在执行ubuntu terminal命令时，如果需要切换路径：</p>
-<pre><code>os.chdir(&#39;&lt;路径名称&gt;&#39;)</code></pre>
-</li>
-</ul>
+        <p>奇异值分解是线性代数中一种重要的矩阵分解方法，本文通过一个具体的例子来说明如何对一个矩阵A进行奇异值分解。</p>
+<p>首先，对于一个m*n的矩阵，如果存在正交矩阵U(m*m阶)和V(n*n阶)，使得(1)式成立：<br>$$<br>\begin{equation}<br>\begin{split}<br>A &amp;= UΣV^T<br>\end{split}<br>\end{equation}\tag{1}<br>$$<br>则将式(1)的过程称为奇异值分解，其中$Σ_{mn}=\begin{bmatrix}a &amp; b\c &amp; d\end{bmatrix}$，且$Σ_1=diag(σ_1,σ_2,…,σ_r)$，U和V分别称为A的左奇异向量矩阵和右奇异向量矩阵。下面用一个具体的例子来说明如何得到上述的分解。</p>
+<p>对于矩阵$A=\begin{bmatrix}1&amp;1\1&amp;1\0&amp;0\end{bmatrix}$,</p>
+<p>第一步计算U，计算矩阵$AA^T=\begin{bmatrix}2&amp;2&amp;0\2&amp;2&amp;0\0&amp;0&amp;0\end{bmatrix}$，对其进行特征分解，分别得到特征值4，0，0和对应的特征向量$[\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0]^T$,$[-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0]^T$,$[0,0,1]^T$，可以得到$U=\begin{bmatrix}\frac{1}{\sqrt{2}}&amp;-\frac{1}{\sqrt{2}}&amp;0\\frac{1}{\sqrt{2}}&amp;\frac{1}{\sqrt{2}}&amp;0\0&amp;0&amp;1\end{bmatrix}$</p>
+<p>第二步计算V，$A^TA=\begin{bmatrix}2&amp;2\2&amp;2\end{bmatrix}$，对其进行特征分解，分别得到特征值4，0和对应的特征向量$[\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}]^T$，$[-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}]^T$，可以得到$V=\begin{bmatrix}\frac{1}{\sqrt{2}}&amp;-\frac{1}{\sqrt{2}}\\frac{1}{\sqrt{2}}&amp;\frac{1}{\sqrt{2}}\end{bmatrix}$</p>
+<p>第三部计算$Σ_{mn}=\begin{bmatrix}Σ_1&amp;0\0&amp;0\end{bmatrix}$，其中$Σ_1=diag(σ_1,σ_2,…,σ_r)$是将第一或第二步求出的非零特征值从大到小排列后开根号的值，这里$Σ=\begin{bmatrix}2&amp;0\0&amp;0\0&amp;0\end{bmatrix}$</p>
+<p>最终，我们可以得到A的奇异值分解<br>$$<br>\begin{equation}<br>\begin{split}<br>A &amp;= UΣV^T=<br>\begin{bmatrix}\frac{1}{\sqrt{2}}&amp;-\frac{1}{\sqrt{2}}&amp;0\\frac{1}{\sqrt{2}}&amp;\frac{1}{\sqrt{2}}&amp;0\0&amp;0&amp;1\end{bmatrix}<br>\begin{bmatrix}2&amp;0\0&amp;0\0&amp;0\end{bmatrix}<br>\begin{bmatrix}\frac{1}{\sqrt{2}}&amp;-\frac{1}{\sqrt{2}}\\frac{1}{\sqrt{2}}&amp;\frac{1}{\sqrt{2}}\end{bmatrix}<br>^T=\begin{bmatrix}1&amp;1\1&amp;1\0&amp;0\end{bmatrix}<br>\end{split}<br>\end{equation}<br>$$</p>
+<blockquote>
+<p><strong>矩阵的特征值分解和奇异值分解有什么区别？</strong></p>
+</blockquote>
+<p>首先，特征值只能作用在一个m*<em>m的正方矩阵上，而奇异值分解则可以作用在一个m</em>*n的长方矩阵上。其次，奇异值分解同时包含了<strong>旋转</strong>、<strong>缩放</strong>和<strong>投影</strong>三种作用，(1)式中，U和V都起到了对A旋转的作用，而Σ起到了对A缩放的作用。特征值分解只有缩放的效果。</p>
 
     </div>
 
