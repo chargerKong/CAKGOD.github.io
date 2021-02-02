@@ -35,13 +35,13 @@
     <div class="post-content">
         <h1 id="ubuntu服务器-Nginx初步配置及站点部署"><a href="#ubuntu服务器-Nginx初步配置及站点部署" class="headerlink" title="ubuntu服务器-Nginx初步配置及站点部署"></a>ubuntu服务器-Nginx初步配置及站点部署</h1><ul>
 <li><p>使用SSH远程登录服务器  </p>
-<pre><code>ssh root@***.***.***.***</code></pre>
-</li>
+<pre><code>ssh root@***.***.***.***
+</code></pre></li>
 <li><p>安装Nginx并启动服务器</p>
 <pre><code>apt update
 apt install nginx
-systemctl start nginx</code></pre>
-</li>
+systemctl start nginx
+</code></pre></li>
 <li><p>将项目上传到服务器  </p>
 <p>可以选择本地上传或者 github clone。  </p>
 </li>
@@ -50,12 +50,12 @@ systemctl start nginx</code></pre>
 vim default
 (rewrite) root /var/www/sites
 cd /var/www
-mv &lt;code path&gt; sites</code></pre>
-</li>
+mv &lt;code path&gt; sites
+</code></pre></li>
 <li><p>检测nginx配置文件，重启nginx服务器</p>
 <pre><code>nginx -t
-service nginx restart</code></pre>
-</li>
+service nginx restart
+</code></pre></li>
 </ul>
 
     </div>
@@ -119,5 +119,20 @@ color: #669bfc;
 }
 </style>
     <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

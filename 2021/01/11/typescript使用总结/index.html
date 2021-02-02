@@ -37,20 +37,20 @@
 <li>安装<code>typescript</code></li>
 </ul>
 <pre><code>sudo apt install npm
-sudo npm install -g typescript</code></pre>
-<p>通过<code>tsc</code>命令确认安装完成</p>
-<pre><code>tsc -v</code></pre>
-<ul>
+sudo npm install -g typescript
+</code></pre><p>通过<code>tsc</code>命令确认安装完成</p>
+<pre><code>tsc -v
+</code></pre><ul>
 <li>运行<code>ts</code>文件</li>
 </ul>
 <pre><code>tsc ***.ts // 得到***.js文件
-node ***.js // 使用node命令执行js文件</code></pre>
-<ul>
+node ***.js // 使用node命令执行js文件
+</code></pre><ul>
 <li><p>运行<code>ts</code>文件出现以下错误</p>
-<pre><code>Cannot find module &#39;fs&#39;</code></pre>
-<p>执行以下命令：</p>
-<pre><code>sudo npm install @types/node</code></pre>
-</li>
+<pre><code>Cannot find module &#39;fs&#39;
+</code></pre><p>执行以下命令：</p>
+<pre><code>sudo npm install @types/node
+</code></pre></li>
 </ul>
 
     </div>
@@ -114,5 +114,20 @@ color: #669bfc;
 }
 </style>
     <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
