@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        CAKGOD
+    </title>
+    <meta name="description" content= 欢迎访问CAKGOD的辣鸡网站！！！ >
+    <meta name="keywords" content= Blog,Hexo,Theme,CAKGOD >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            vim使用总结
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <ol>
+<li><p>在vim中多开窗口并切换</p>
+<p>(1) use <code>:sp</code> or <code>:vs</code> to split the windows<br>(2) press the <code>ctrl+w</code> firstly, then press <code>h</code> to switch to the left window (in the same way, <code>ctrl+w j</code> to the down window, <code>ctrl+w k</code> to the up window, <code>ctrl+w l</code> to the right window)</p>
+</li>
+<li><p>markdown<br>if I want to view the markdown file<br>  (1) install the <code>&quot;markdown-preview.vim&quot;</code> plugin<br>  (2) use <code>:MarkdownPreview</code> to view it in the browser</p>
+</li>
+<li><p>move the cursor<br>(1) move the cursor to the first line of a file<br><1> <code>:0</code> or <code>:1</code><br><2> <code>gg</code><br>  (2) move the cursor to the last line of a file<br><1> :<br><2> <code>G</code><br><3> <code>shift+g</code><br>  (3) move the cursor to the head of a line<br><1> <code>Home</code><br><2> <code>^</code> also <code>shift+6</code><br><3> <code>0</code><br>  (4) move the cursor to the tail of a line<br><1> <code>End</code><br><2> <code>shift+4</code> to move the cursor to the tail of the current line<br>  (5) shortcuts: search<br><code>:/&lt;word you search&gt;</code><br>  (6) open file<br>if vim is not launched:<br>  <code>vim &lt;file1_name&gt; &lt;file2_name&gt; &lt;file3_name&gt; ...</code><br>if vim is launched:<br>  <code>:open &lt;file_name&gt;</code><br>  (7) switch files in the opened files<br>switch files in the last two opened files:<br>  <code>ctrl + 6</code><br>next file<br>  <code>:bn</code><br>last file<br>  <code>:bp</code><br>  (8) revoke<br>revoke the last operation<br>  <code>:n</code><br>  <code>n</code><br>  <code>u</code></p>
+</li>
+<li><p>recover the revoke operation</p>
+<pre><code>`ctrl + r`
+</code></pre></li>
+</ol>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: Your Name | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">Page Views: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">Unique Visitors: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="NOsswOncKgc8HOxqo9oxIWlX-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="z1FihjWEbS8uIfUQdmCtK7zz">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
