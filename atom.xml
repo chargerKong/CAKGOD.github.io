@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CAKGOD</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-02-04T02:48:50.577Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>CAKGOD</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>markdown使用总结</title>
+    <link href="http://example.com/2021/02/04/markdown%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/02/04/markdown%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-02-04T02:48:26.000Z</published>
+    <updated>2021-02-04T02:48:50.577Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Markdown使用教程"><a href="#Markdown使用教程" class="headerlink" title="Markdown使用教程"></a>Markdown使用教程</h1><h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><h2 id="2、Markdown标题"><a href="#2、Markdown标题" class="headerlink" title="2、Markdown标题"></a>2、Markdown标题</h2><p>Markdown 标题有两种格式。</p><h3 id="（1）使用-和-标记一级和二级标题"><a href="#（1）使用-和-标记一级和二级标题" class="headerlink" title="（1）使用 = 和 - 标记一级和二级标题"></a>（1）使用 = 和 - 标记一级和二级标题</h3><p>= 和 - 标记语法格式如下：</p><pre><code>我展示的是一级标题=================我展示的是二级标题-----------------</code></pre><h3 id="（2）使用-号标记"><a href="#（2）使用-号标记" class="headerlink" title="（2）使用 # 号标记"></a>（2）使用 # 号标记</h3><pre><code># 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题</code></pre><h2 id="3、Markdown-段落"><a href="#3、Markdown-段落" class="headerlink" title="3、Markdown 段落"></a>3、Markdown 段落</h2><p>Markdown 段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。  </p><p>当然也可以在段落后面使用一个空行来表示重新开始一个段落。</p><h2 id="4、Markdown字体"><a href="#4、Markdown字体" class="headerlink" title="4、Markdown字体"></a>4、Markdown字体</h2><p>Markdown 可以使用以下几种字体：</p><pre><code>*斜体文本*_斜体文本_**粗体文本**__粗体文本__***粗斜体文本***___粗斜体文本___</code></pre><h2 id="5、Markdown分割线"><a href="#5、Markdown分割线" class="headerlink" title="5、Markdown分割线"></a>5、Markdown分割线</h2><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p><pre><code>**** * ******- - -----------</code></pre><h2 id="6、Markdown删除线"><a href="#6、Markdown删除线" class="headerlink" title="6、Markdown删除线"></a>6、Markdown删除线</h2><p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 <strong>~~</strong> 即可，实例如下：</p><pre><code>RUNOOB.COMGOOGLE.COM~~BAIDU.COM~~</code></pre><h2 id="7、Markdown下划线"><a href="#7、Markdown下划线" class="headerlink" title="7、Markdown下划线"></a>7、Markdown下划线</h2><p>下划线可以通过 HTML 的 <u> 标签来实现：</p><pre><code>&lt;u&gt;带下划线文本&lt;/u&gt;</code></pre><h2 id="8、Markdown脚注"><a href="#8、Markdown脚注" class="headerlink" title="8、Markdown脚注"></a>8、Markdown脚注</h2><p>脚注是对文本的补充说明。</p><p>Markdown 脚注的格式如下:</p><pre><code>[^要注明的文本]</code></pre><p>以下实例演示了脚注的用法：</p><pre><code>创建脚注格式类似这样 [^RUNOOB]。[^RUNOOB]: 菜鸟教程 -- 学的不仅是技术，更是梦想！！！</code></pre><h2 id="9、Markdown列表"><a href="#9、Markdown列表" class="headerlink" title="9、Markdown列表"></a>9、Markdown列表</h2><p>Markdown 支持有序列表和无序列表。</p><p>无序列表使用星号(*)、加号(+)或是减号(-)作为列表标记，这些标记后面要添加一个空格，然后再填写内容：</p><pre><code>* 第一项* 第二项* 第三项+ 第一项+ 第二项+ 第三项- 第一项- 第二项- 第三项</code></pre><p>有序列表使用数字并加上 <strong>.</strong> 号来表示，如：</p><pre><code>1. 第一项2. 第二项3. 第三项</code></pre><p>列表嵌套只需在子列表中的选项前面添加四个空格即可：</p><pre><code>1. 第一项：    - 第一项嵌套的第一个元素    - 第一项嵌套的第二个元素2. 第二项：    - 第二项嵌套的第一个元素    - 第二项嵌套的第二个元素</code></pre><h2 id="10、Markdown区块"><a href="#10、Markdown区块" class="headerlink" title="10、Markdown区块"></a>10、Markdown区块</h2><p>Markdown 区块引用是在段落开头使用 <strong>&gt;</strong> 符号 ，然后后面紧跟一个<strong>空格</strong>符号：</p><pre><code>&gt; 区块引用&gt; 菜鸟教程&gt; 学的不仅是技术更是梦想</code></pre><p>另外区块是可以嵌套的，一个 <strong>&gt;</strong> 符号是最外层，两个 <strong>&gt;</strong> 符号是第一层嵌套，以此类推：</p><pre><code>&gt; 最外层&gt; &gt; 第一层嵌套&gt; &gt; &gt; 第二层嵌套</code></pre><p>区块中使用列表实例如下：</p><pre><code>&gt; 区块中使用列表&gt; 1. 第一项&gt; 2. 第二项&gt; + 第一项&gt; + 第二项&gt; + 第三项</code></pre><p>如果要在列表项目内放进区块，那么就需要在 <strong>&gt;</strong> 前添加四个空格的缩进。</p><p>区块中使用列表实例如下：</p><pre><code>* 第一项    &gt; 菜鸟教程    &gt; 学的不仅是技术更是梦想* 第二项</code></pre><h2 id="11、Markdown代码"><a href="#11、Markdown代码" class="headerlink" title="11、Markdown代码"></a>11、Markdown代码</h2><p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来（<strong>`</strong>），例如：</p><pre><code>`printf()` 函数</code></pre><p>代码区块使用 <strong>4 个空格</strong>或者一个<strong>制表符（Tab 键）</strong>。  </p><p>也可以用 <strong>```</strong> 包裹一段代码，并指定一种语言（也可以不指定）：</p><pre><code>​```javascript$(document).ready(function () &#123;    alert(&#39;RUNOOB&#39;);&#125;);​</code></pre><pre><code>## 12、Markdown链接链接使用方法如下：</code></pre><p><a href="链接地址">链接名称</a></p><p>或者</p><p>&lt;链接地址&gt;</p><pre><code>例如：</code></pre><p>这是一个链接 <a href="https://www.runoob.com">菜鸟教程</a></p><pre><code>可以通过变量来设置一个链接，变量赋值在文档末尾进行：</code></pre><p>这个链接用 1 作为网址变量 <a href="http://static.runoob.com/images/runoob-logo.png">Google</a><br>这个链接用 runoob 作为网址变量 <a href="http://www.runoob.com/">Runoob</a><br>然后在文档的结尾为变量赋值（网址）</p><pre><code>## 13、Markdown图片Markdown 图片语法格式如下：</code></pre><p><img src="图片地址" alt="alt 属性文本"></p><p><img src="图片地址" alt="alt 属性文本" title="可选标题"></p><pre><code>- 开头一个感叹号 !- 接着一个方括号，里面放上图片的替代文字- 接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 &#39;title&#39; 属性的文字。  使用示例：</code></pre><p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标"></p><p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB"></p><pre><code>当然，也可以像网址那样对图片网址使用变量:.</code></pre><p>这个链接用 1 作为网址变量 <a href="http://static.runoob.com/images/runoob-logo.png">RUNOOB</a>.<br>然后在文档的结尾为变量赋值（网址）</p><pre><code>Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 &lt;img&gt; 标签。</code></pre><p><img src="http://static.runoob.com/images/runoob-logo.png" width="50%"></p><pre><code>## 14、Markdown表格Markdown 制作表格使用 **|** 来分隔不同的单元格，使用 **-** 来分隔表头和其他行。语法格式如下：</code></pre><div class="table-container"><table><thead><tr><th>表头</th><th>表头</th></tr></thead><tbody><tr><td>单元格</td><td>单元格</td></tr><tr><td>单元格</td><td>单元格</td></tr></tbody></table></div><pre><code>**可以设置表格的对齐方式：**- **-:** 设置内容和标题栏居右对齐。- **:-** 设置内容和标题栏居左对齐。- **:-:** 设置内容和标题栏居中对齐。示例如下：</code></pre><div class="table-container"><table><thead><tr><th style="text-align:left">左对齐</th><th style="text-align:right">右对齐</th><th style="text-align:center">居中对齐</th></tr></thead><tbody><tr><td style="text-align:left">单元格</td><td style="text-align:right">单元格</td><td style="text-align:center">单元格</td></tr><tr><td style="text-align:left">单元格</td><td style="text-align:right">单元格</td><td style="text-align:center">单元格</td></tr></tbody></table></div><pre><code>## 15、Markdown 高级技巧不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。目前支持的 HTML 元素有：`&lt;kbd&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;`等 ，如：</code></pre><p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p><pre><code>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：</code></pre><p><strong>文本加粗</strong><br>** 正常显示星号 **</p><pre><code>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</code></pre><p>\   反斜线<br>`   反引号</p><ul><li>星号<br>_   下划线<br>{}  花括号<br>[]  方括号<br>()  小括号<h1 id="井字号"><a href="#井字号" class="headerlink" title="井字号"></a>井字号</h1></li></ul><ul><li>加号</li></ul><ul><li>减号<br>.   英文句点<br>!   感叹号<br>```</li></ul><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax 对数学公式进行渲染。如：</p><pre><code>$$\mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125; \mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\\end&#123;vmatrix&#125;$&#123;$tep1&#125;&#123;\style&#123;visibility:hidden&#125;&#123;(x+1)(x+1)&#125;&#125;$$</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Markdown使用教程&quot;&gt;&lt;a href=&quot;#Markdown使用教程&quot; class=&quot;headerlink&quot; title=&quot;Markdown使用教程&quot;&gt;&lt;/a&gt;Markdown使用教程&lt;/h1&gt;&lt;h2 id=&quot;1、简介&quot;&gt;&lt;a href=&quot;#1、简介&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用turtlebot2和速腾聚创雷达搭建移动机器人数据采集平台</title>
+    <link href="http://example.com/2021/02/04/%E4%BD%BF%E7%94%A8turtlebot2%E5%92%8C%E9%80%9F%E8%85%BE%E8%81%9A%E5%88%9B%E9%9B%B7%E8%BE%BE%E6%90%AD%E5%BB%BA%E7%A7%BB%E5%8A%A8%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%B9%B3%E5%8F%B0/"/>
+    <id>http://example.com/2021/02/04/%E4%BD%BF%E7%94%A8turtlebot2%E5%92%8C%E9%80%9F%E8%85%BE%E8%81%9A%E5%88%9B%E9%9B%B7%E8%BE%BE%E6%90%AD%E5%BB%BA%E7%A7%BB%E5%8A%A8%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%B9%B3%E5%8F%B0/</id>
+    <published>2021-02-04T01:47:46.000Z</published>
+    <updated>2021-02-04T02:46:22.521Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前一段时间在Navigation2社区进行贡献，鉴于目前通用的数据集是用于自动驾驶的，社区Leader Steve对移动机器人数据集提出了需求，同时提出了需要考虑到多数开发者控制成本的要求。为此，特意购置了速腾聚创的16线雷达，以及Turtlebot2移动机器人来组装该平台。</p><h2 id="硬件部分"><a href="#硬件部分" class="headerlink" title="硬件部分"></a>硬件部分</h2><p>整套设备由速腾聚创雷达、Xsens惯导、Turtlebot2、Mini PC以及两块电源组成。为了保证雷达有足够的视野，需要将雷达安装在Turtlebot2的最顶部，将电源通过转接器进行电压转化对雷达进行供电。Xsens固定在雷达垂直的位置上，保证相对位置固定，通过Mini PC的数据线连接供电。Mini PC通过同样电源的方法进行供电，并通过网线和雷达连接，通过数据线和Turtlebot连接。Turtlebot本身充满电即可。最后的组装的完整设备如下图所示。</p><h2 id="软件部分"><a href="#软件部分" class="headerlink" title="软件部分"></a>软件部分</h2><ul><li><p>在Mini PC上安装相关软件</p><ol><li><p>安装ubuntu 18.04</p></li><li><p>安装ROS melodic</p></li><li><p>安装Turtlebot相关软件<br><code>sudo apt install ros-melodic-kobuki-*</code><br><code>sudo apt install ros-melodic-ecl-streams</code><br><code>sudo apt install libusb-dev</code><br><code>sudo apt install libspnav-dev</code><br><code>sudo apt install ros-melodic-joystick-drivers</code><br><code>sudo apt install libbluetooth-dev</code><br><code>sudo apt install libcwiid-dev</code><br><code>sudo apt install ros-melodic-robot-pose-ekf</code></p></li><li><p>准备SDK软件<br><code>mkdir -p ~/turtlebot_ws/src</code><br><code>cd ~/turtlebot_ws/src</code><br><code>git clone https://github.com/turtlebot/turtlebot_simulator</code><br><code>git clone https://github.com/turtlebot/turtlebot.git</code><br>​<code>git clone https://github.com/turtlebot/turtlebot_apps.git</code><br><code>git clone https://github.com/udacity/robot_pose_ekf</code><br>​<code>git clone https://github.com/ros-perception/depthimage_to_laserscan.git</code><br><code>git clone https://github.com/yujinrobot/kobuki_msgs.git</code><br><code>git clone https://github.com/yujinrobot/kobuki_desktop.git</code><br><code>cd kobuki_desktop/</code><br>​<code>rm -r kobuki_qtestsuite</code><br><code>git clone https://github.com/toeklk/orocos-bayesian-filtering.git</code><br><code>git clone https://github.com/turtlebot/turtlebot_msgs.git</code><br><code>git clone https://github.com/ros-drivers/joystick_drivers.git</code></p></li><li><p>将<code>kobuki</code>和<code>yujin_ocs</code>依赖复制到<code>turtlebot/src/</code><br>​<code>mkdir -p ~/repos/</code><br><code>cd ~/repos/</code><br>​<code>git clone https://github.com/yujinrobot/kobuki.git</code><br>​<code>cp -r kobuki/* ~/turtlebot_ws/src/</code><br>​<code>git clone https://github.com/yujinrobot/yujin_ocs.git</code><br>​<code>cp -r yujin_ocs/yocs_cmd_vel_mux/ yujin_ocs/yocs_controllers ~/turtlebot_ws/src/</code></p></li><li><p>编译</p><p><code>cd ~/turtlebot_ws</code><br><code>source /opt/ros/melodic/setup.bash</code><br><code>catkin_make</code></p></li><li><p>将工作空间添加到bashrc文件中<br><code>echo &quot;source ~/turtlebot_ws/devel/setup.bash&quot; &gt;&gt; ~/.bashrc</code></p></li><li><p>source </p><p><code>`source ~/.bashrc</code></p></li><li><p>安装Xsens惯导软件</p><p>首先安装mti670驱动，从MT SDK文件夹中将 xsens_ros_mti_driver文件夹复制到catkin工作目录的src文件夹中，使用<code>chmod 777</code>命令对所有文件夹和文件添加权限，然后使用<code>pushd src/xsens_ros_mti_driver/lib/xspublic &amp;&amp; make &amp;&amp; popd</code>命令编译xspublic，最后使用<code>catkin_make</code>编译Mti驱动文件夹。</p></li><li><p>其他</p></li></ol></li></ul><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ol><li><p>将各个线连接好</p></li><li><p>启动Turtlebot2</p><p><code>roslaunch turtlebot_bringup minimal.launch</code></p><p>将会看以下信息</p><pre><code>ubuntu@AiROS-XA:~/turtlebot_ws/src$ roslaunch turtlebot_bringup minimal.launch      ... logging to /home/ubuntu/.ros/log/a22c211a-7888-11e9-8396-00044bcb943f/roslaunch-AiROS-    XA-6402.log     Checking log directory for disk usage. This may take awhile.     Press Ctrl-C to interrupt     Done checking log file disk usage. Usage is &lt;1GB.     xacro: in-order processing became default in ROS Melodic. You can drop the option.     started roslaunch server http://AiROS-XA:41151/     SUMMARY    ========    PARAMETERS     * /bumper2pointcloud/pointcloud_radius: 0.24     * /cmd_vel_mux/yaml_cfg_file: /home/ubuntu/turt...     * /diagnostic_aggregator/analyzers/input_ports/contains: [&#39;Digital Input&#39;,...     * /diagnostic_aggregator/analyzers/input_ports/path: Input Ports     * /diagnostic_aggregator/analyzers/input_ports/remove_prefix: mobile_base_nodel...     * /diagnostic_aggregator/analyzers/input_ports/timeout: 5.0     * /diagnostic_aggregator/analyzers/input_ports/type: diagnostic_aggreg...     * /diagnostic_aggregator/analyzers/kobuki/contains: [&#39;Watchdog&#39;, &#39;Mot...     * /diagnostic_aggregator/analyzers/kobuki/path: Kobuki     * /diagnostic_aggregator/analyzers/kobuki/remove_prefix: mobile_base_nodel...     * /diagnostic_aggregator/analyzers/kobuki/timeout: 5.0     * /diagnostic_aggregator/analyzers/kobuki/type: diagnostic_aggreg...     * /diagnostic_aggregator/analyzers/power/contains: [&#39;Battery&#39;, &#39;Lapt...     * /diagnostic_aggregator/analyzers/power/path: Power System     * /diagnostic_aggregator/analyzers/power/remove_prefix: mobile_base_nodel...     * /diagnostic_aggregator/analyzers/power/timeout: 5.0     * /diagnostic_aggregator/analyzers/power/type: diagnostic_aggreg...     * /diagnostic_aggregator/analyzers/sensors/contains: [&#39;Cliff Sensor&#39;, ...     * /diagnostic_aggregator/analyzers/sensors/path: Sensors     * /diagnostic_aggregator/analyzers/sensors/remove_prefix: mobile_base_nodel...     * /diagnostic_aggregator/analyzers/sensors/timeout: 5.0     * /diagnostic_aggregator/analyzers/sensors/type: diagnostic_aggreg...     * /diagnostic_aggregator/base_path:      * /diagnostic_aggregator/pub_rate: 1.0     * /mobile_base/base_frame: base_footprint     * /mobile_base/battery_capacity: 16.5     * /mobile_base/battery_dangerous: 13.2     * /mobile_base/battery_low: 14.0     * /mobile_base/cmd_vel_timeout: 0.6     * /mobile_base/device_port: /dev/kobuki     * /mobile_base/odom_frame: odom     * /mobile_base/publish_tf: True     * /mobile_base/use_imu_heading: True     * /mobile_base/wheel_left_joint_name: wheel_left_joint     * /mobile_base/wheel_right_joint_name: wheel_right_joint     * /robot/name: turtlebot     * /robot/type: turtlebot     * /robot_description: &lt;?xml version=&quot;1....     * /robot_state_publisher/publish_frequency: 5.0     * /rosdistro: melodic     * /rosversion: 1.14.3     * /use_sim_time: False    NODES      /        bumper2pointcloud (nodelet/nodelet)        cmd_vel_mux (nodelet/nodelet)        diagnostic_aggregator (diagnostic_aggregator/aggregator_node)        mobile_base (nodelet/nodelet)        mobile_base_nodelet_manager (nodelet/nodelet)        robot_state_publisher (robot_state_publisher/robot_state_publisher)    auto-starting new master    process[master]: started with pid [6415]    ROS_MASTER_URI=http://localhost:11311    setting /run_id to a22c211a-7888-11e9-8396-00044bcb943f    process[rosout-1]: started with pid [6426]    started core service [/rosout]    process[robot_state_publisher-2]: started with pid [6434]    process[diagnostic_aggregator-3]: started with pid [6435]    process[mobile_base_nodelet_manager-4]: started with pid [6440]    process[mobile_base-5]: started with pid [6444]    process[bumper2pointcloud-6]: started with pid [6448]    process[cmd_vel_mux-7]: started with pid [6451]</code></pre></li><li><p>启动键盘控制</p><p>运行<code>$roslaunch turtlebot_teleop keyboard_teleop.launch</code>，屏幕上会出现以下信息：</p><pre><code>    ubuntu@AiROS-XA:~$ roslaunch turtlebot_teleop keyboard_teleop.launch    ... logging to /home/ubuntu/.ros/log/a22c211a-7888-11e9-8396-00044bcb943f/roslaunch-AiROS-XA-6533.log    Checking log directory for disk usage. This may take awhile.    Press Ctrl-C to interrupt    Done checking log file disk usage. Usage is &lt;1GB.    started roslaunch server http://AiROS-XA:41229/    SUMMARY    ========    PARAMETERS     * /rosdistro: melodic     * /rosversion: 1.14.3     * /turtlebot_teleop_keyboard/scale_angular: 1.5     * /turtlebot_teleop_keyboard/scale_linear: 0.5    NODES      /        turtlebot_teleop_keyboard (turtlebot_teleop/turtlebot_teleop_key)    ROS_MASTER_URI=http://localhost:11311    process[turtlebot_teleop_keyboard-1]: started with pid [6552]    Control Your Turtlebot!    ---------------------------    Moving around:       u    i    o       j    k    l       m    ,    .    q/z : increase/decrease max speeds by 10%    w/x : increase/decrease only linear speed by 10%    e/c : increase/decrease only angular speed by 10%    space key, k : force stop    anything else : stop smoothly    CTRL-C to quit    currently:  speed 0.2   turn 1</code></pre></li><li><p>启动雷达</p><p>通过<code>$roslaunch rslidar_pointcloud rs_lidar_32.launch</code>启动雷达和Rviz并且此时可以再Rviz中看到点云。</p></li><li><p>启动Xsens惯导</p><p><code>roslaunch xsens_mti_driver xsens_mti_node.launch</code></p><p>此时可以接收到雷达和IMU的topic了，使用<code>rosbag record ***.bag &lt;topic名字&gt;</code></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;之前一段时间在Navigation2社区进行贡献，鉴于目前通用的数据集是用于自动驾驶的，社区Leader Steve对移动机器人数据集提出了需求，同时提出了需要考虑到多数开发者控制成本的要求。为此，特意购置了速腾聚创的16线雷达，以及Turtlebot2移动机器人来组装该平</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vim使用总结</title>
+    <link href="http://example.com/2021/02/04/vim%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/02/04/vim%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-02-04T01:43:39.000Z</published>
+    <updated>2021-02-04T01:44:00.150Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>在vim中多开窗口并切换</p><p>(1) use <code>:sp</code> or <code>:vs</code> to split the windows<br>(2) press the <code>ctrl+w</code> firstly, then press <code>h</code> to switch to the left window (in the same way, <code>ctrl+w j</code> to the down window, <code>ctrl+w k</code> to the up window, <code>ctrl+w l</code> to the right window)</p></li><li><p>markdown<br>if I want to view the markdown file<br>  (1) install the <code>&quot;markdown-preview.vim&quot;</code> plugin<br>  (2) use <code>:MarkdownPreview</code> to view it in the browser</p></li><li><p>move the cursor<br>(1) move the cursor to the first line of a file<br><1> <code>:0</code> or <code>:1</code><br><2> <code>gg</code><br>  (2) move the cursor to the last line of a file<br><1> :<br><2> <code>G</code><br><3> <code>shift+g</code><br>  (3) move the cursor to the head of a line<br><1> <code>Home</code><br><2> <code>^</code> also <code>shift+6</code><br><3> <code>0</code><br>  (4) move the cursor to the tail of a line<br><1> <code>End</code><br><2> <code>shift+4</code> to move the cursor to the tail of the current line<br>  (5) shortcuts: search<br><code>:/&lt;word you search&gt;</code><br>  (6) open file<br>if vim is not launched:<br>  <code>vim &lt;file1_name&gt; &lt;file2_name&gt; &lt;file3_name&gt; ...</code><br>if vim is launched:<br>  <code>:open &lt;file_name&gt;</code><br>  (7) switch files in the opened files<br>switch files in the last two opened files:<br>  <code>ctrl + 6</code><br>next file<br>  <code>:bn</code><br>last file<br>  <code>:bp</code><br>  (8) revoke<br>revoke the last operation<br>  <code>:n</code><br>  <code>n</code><br>  <code>u</code></p></li><li><p>recover the revoke operation</p><pre><code>`ctrl + r`</code></pre></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在vim中多开窗口并切换&lt;/p&gt;
+&lt;p&gt;(1) use &lt;code&gt;:sp&lt;/code&gt; or &lt;code&gt;:vs&lt;/code&gt; to split the windows&lt;br&gt;(2) press the &lt;code&gt;ctrl+w&lt;/code&gt; first</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SVD奇异值分解</title>
+    <link href="http://example.com/2021/02/02/SVD%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/"/>
+    <id>http://example.com/2021/02/02/SVD%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/</id>
+    <published>2021-02-02T12:14:55.000Z</published>
+    <updated>2021-02-02T14:13:04.841Z</updated>
+    
+    <content type="html"><![CDATA[<p>奇异值分解是线性代数中一种重要的矩阵分解方法，本文通过一个具体的例子来说明如何对一个矩阵A进行奇异值分解。</p><p>首先，对于一个m*n的矩阵，如果存在正交矩阵U(m*m阶)和V(n*n阶)，使得(1)式成立：</p><script type="math/tex; mode=display">\begin{equation}\begin{split}A &= UΣV^T\end{split}\end{equation}\tag{1}</script><p>则将式(1)的过程称为奇异值分解，其中$Σ_{mn}=\begin{bmatrix}a &amp; b\\c &amp; d\end{bmatrix}$，且$Σ_1=diag(σ_1,σ_2,…,σ_r)$，U和V分别称为A的左奇异向量矩阵和右奇异向量矩阵。下面用一个具体的例子来说明如何得到上述的分解。</p><p>对于矩阵$A=\begin{bmatrix}1&amp;1\\1&amp;1\\0&amp;0\end{bmatrix}$,</p><p>第一步计算U，计算矩阵$AA^T=\begin{bmatrix}2&amp;2&amp;0\\2&amp;2&amp;0\\0&amp;0&amp;0\end{bmatrix}$，对其进行特征分解，分别得到特征值4，0，0和对应的特征向量$[\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0]^T$,$[-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0]^T$,$[0,0,1]^T$，可以得到$U=\begin{bmatrix}\frac{1}{\sqrt{2}}&amp;-\frac{1}{\sqrt{2}}&amp;0\\\frac{1}{\sqrt{2}}&amp;\frac{1}{\sqrt{2}}&amp;0\\0&amp;0&amp;1\end{bmatrix}$</p><p>第二步计算V，$A^TA=\begin{bmatrix}2&amp;2\\2&amp;2\end{bmatrix}$，对其进行特征分解，分别得到特征值4，0和对应的特征向量$[\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}]^T$，$[-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}]^T$，可以得到$V=\begin{bmatrix}\frac{1}{\sqrt{2}}&amp;-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&amp;\frac{1}{\sqrt{2}}\end{bmatrix}$</p><p>第三部计算$Σ_{mn}=\begin{bmatrix}Σ_1&amp;0\\0&amp;0\end{bmatrix}$，其中$Σ_1=diag(σ_1,σ_2,…,σ_r)$是将第一或第二步求出的非零特征值从大到小排列后开根号的值，这里$Σ=\begin{bmatrix}2&amp;0\\0&amp;0\\0&amp;0\end{bmatrix}$</p><p>最终，我们可以得到A的奇异值分解</p><script type="math/tex; mode=display">\begin{equation}\begin{split}A &= UΣV^T=\begin{bmatrix}\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}&0\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}&0\\0&0&1\end{bmatrix}\begin{bmatrix}2&0\\0&0\\0&0\end{bmatrix}\begin{bmatrix}\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\end{bmatrix}^T=\begin{bmatrix}1&1\\1&1\\0&0\end{bmatrix}\end{split}\end{equation}</script><blockquote><p><strong>矩阵的特征值分解和奇异值分解有什么区别？</strong></p></blockquote><p>首先，特征值只能作用在一个m*<em>m的正方矩阵上，而奇异值分解则可以作用在一个m</em>*n的长方矩阵上。其次，奇异值分解同时包含了<strong>旋转</strong>、<strong>缩放</strong>和<strong>投影</strong>三种作用，(1)式中，U和V都起到了对A旋转的作用，而Σ起到了对A缩放的作用。特征值分解只有缩放的效果。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;奇异值分解是线性代数中一种重要的矩阵分解方法，本文通过一个具体的例子来说明如何对一个矩阵A进行奇异值分解。&lt;/p&gt;
+&lt;p&gt;首先，对于一个m*n的矩阵，如果存在正交矩阵U(m*m阶)和V(n*n阶)，使得(1)式成立：&lt;/p&gt;
+&lt;script type=&quot;math/tex; </summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>k-core算法</title>
+    <link href="http://example.com/2021/01/28/k-core%E7%AE%97%E6%B3%95/"/>
+    <id>http://example.com/2021/01/28/k-core%E7%AE%97%E6%B3%95/</id>
+    <published>2021-01-28T09:09:15.000Z</published>
+    <updated>2021-01-28T14:25:25.080Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="k-core算法"><a href="#k-core算法" class="headerlink" title="k-core算法"></a>k-core算法</h1><p>在图论中，k-degenerate（k简并）图是一种每个子图都有一个度不超过k的顶点的无向图，即子图中的某个顶点接触子图的k条或更少的边。图的degeneracy（简并度）是k简并的k的最小值。图的简并度是对它的稀疏程度的度量，并且是在其他稀疏度量的常数因子内，例如图的树状度。</p><p>简并度也被称为k-core数（num）、宽度（width）、和连锁（linkage），本质上与着色数（coloring number）或Szekeres-Wilf number（以Szekeres和Wilf(1968)命名）相同。k简并图也被称为k-inductive（k归纳）图。图的简并度可以通过反复删除最小度顶点的算法在线性时间内计算。去掉所有小于k度的顶点后剩下的连通分量称为图的k-cores（k核），图的简并度为具有k核的k的最大值。</p><p>如图所示是一张2-core图，每个顶点在其左边最多有两个邻居，因此任何子图的最右顶点的度最多为2。它的2核，即反复删除度数小于2的顶点后剩下的子图，是阴影的。</p><p>正如Matula &amp; Beck（1983）所描述的，在线性时间内，通过使用一个桶队列反复寻找并移除最小度的顶点，可以找到优化排序着色数的有限图G的顶点排序。那么简并度就是任何顶点在被移除时的最高度。设图中的节点数为n。更详细地说，该算法是这样进行的：</p><ul><li>初始化一个输出列表L。</li><li>对G中的每个顶点v计算一个数字dv，即v不存在于l中的邻居数。最初，这些数字只是顶点的度数。</li><li>初始化一个数组D，使D[i]包含一个不在L中dv = i的顶点v的列表。</li><li>将k初始化为0。</li><li>重复n次:<ul><li>扫描阵列单元D[0]， D[1]，…直到找到一个D[i]非空的i为止。</li><li>从D[i]中选择一个顶点v。在L的开头加上v，然后从D[i]中删除v。</li><li>对于v的每一个未在L中的相邻w，从dw中减去1，然后将w移到对应dw新值的D单元中。</li></ul></li></ul><p>在算法的最后，k包含G的简并性，L包含一个顶点列表，该顶点以最优的着色数排序。G的i核是L的前缀，由k先取大于等于i的值后添加到L的顶点组成。初始化变量L, dv, D和k可以很容易地在线性时间内完成。查找每个连续移除的顶点v，并调整包含v的邻居的D的单元，所花费的时间与该步骤dv的值成正比；但是这些值的总和就是图上的边的数量(每条边对后面的顶点的总和都有贡献)，所以总时间是线性的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;k-core算法&quot;&gt;&lt;a href=&quot;#k-core算法&quot; class=&quot;headerlink&quot; title=&quot;k-core算法&quot;&gt;&lt;/a&gt;k-core算法&lt;/h1&gt;&lt;p&gt;在图论中，k-degenerate（k简并）图是一种每个子图都有一个度不超过k的顶点的无向图</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Boss直聘折腾</title>
+    <link href="http://example.com/2021/01/28/Boss%E7%9B%B4%E8%81%98%E6%8A%98%E8%85%BE/"/>
+    <id>http://example.com/2021/01/28/Boss%E7%9B%B4%E8%81%98%E6%8A%98%E8%85%BE/</id>
+    <published>2021-01-28T08:59:31.000Z</published>
+    <updated>2021-01-28T09:08:51.382Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Boss直聘折腾记录"><a href="#Boss直聘折腾记录" class="headerlink" title="Boss直聘折腾记录"></a>Boss直聘折腾记录</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Boss直聘折腾记录&quot;&gt;&lt;a href=&quot;#Boss直聘折腾记录&quot; class=&quot;headerlink&quot; title=&quot;Boss直聘折腾记录&quot;&gt;&lt;/a&gt;Boss直聘折腾记录&lt;/h1&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>github用户分析</title>
+    <link href="http://example.com/2021/01/25/github%E7%94%A8%E6%88%B7%E5%88%86%E6%9E%90/"/>
+    <id>http://example.com/2021/01/25/github%E7%94%A8%E6%88%B7%E5%88%86%E6%9E%90/</id>
+    <published>2021-01-25T08:22:50.000Z</published>
+    <updated>2021-01-25T10:20:55.673Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>Github作为全球最大的开源代码托管平台，存在着非常多的技术人员和宝贵的项目，这些都是非常难得的分析资源，对它们进行分析具有非常高的价值。</p><h2 id="用户分析"><a href="#用户分析" class="headerlink" title="用户分析"></a>用户分析</h2><p>鉴于Github用户过多，进行全量的分析是不现实的。由于最近团队在洞察Rust社区，选择对其中的贡献者进行分析。首先需要获得所有的Rust贡献者，这里有两种方法获得。</p><p>（1）爬取Crates.io（Rust社区所有crates的介绍网站）上的所有贡献者信息，可以有API来获取。不过这种方法需要进行长时间的爬取，比较繁琐。</p><p>（2）Rust官方有一个<a href="https://github.com/rust-lang/thanks">thanks</a>仓库，里面可以获得所有的贡献者名称。可以按照该仓库的使用介绍来获得ALL-TIME的贡献者名称。</p><p>得到具体的用户login后，可以调用Github API来获得贡献者的基本信息和相关关系。其中用户间的的关系我首先使用了following关系（后续可以添加follows、sponsors、sponsoring关系等），使用<code>https://api.github.com/users/&lt;user-login&gt;/following</code>来下载关系信息，使用<code>https://api.github.com/users/&lt;user-login&gt;</code>来下载基本信息。</p><p>得到用户的基本信息和相互的关系信息后，以人为节点建立知识图谱。个人偏好的工具有Networkx和Neo4j，都是非常好用的软件，其中Networkx可以使用python调用，Neo4j具有一套自己的图数据库系统。简单进行分析的话我选择Networkx。</p><p>从基本信息文件中抽取login作为节点名称，id、node_id、name、compony、blog、location、email、twitter_username、public_repos、public_gists、followers、following、bio、created_at、updated_at、avatar_url、html_url作为节点属性，建立单个节点。</p><p>从关系信息文件中抽取following关系作为两个节点之间的联系。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;项目介绍&quot;&gt;&lt;a href=&quot;#项目介绍&quot; class=&quot;headerlink&quot; title=&quot;项目介绍&quot;&gt;&lt;/a&gt;项目介绍&lt;/h1&gt;&lt;p&gt;Github作为全球最大的开源代码托管平台，存在着非常多的技术人员和宝贵的项目，这些都是非常难得的分析资源，对它们进行分析具</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在linux终端优雅地打印JSON文件</title>
+    <link href="http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/"/>
+    <id>http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/</id>
+    <published>2021-01-25T07:30:53.000Z</published>
+    <updated>2021-01-25T07:45:17.040Z</updated>
+    
+    <content type="html"><![CDATA[<p>JSON 文件非常棒，因为它们以人类可读的格式存储数据集合。然而，如果 JSON 文件被最小化过，那么阅读 JSON 文件可能会很痛苦。以下面的JSON文件为例。</p><pre><code>&#123;&quot;login&quot;: &quot;gperinazzo&quot;, &quot;id&quot;: 9922687, &quot;node_id&quot;: &quot;MDQ6VXNlcjk5MjI2ODc=&quot;, &quot;avatar_url&quot;: &quot;https://avatars0.githubusercontent.com/u/9922687?v=4&quot;, &quot;gravatar_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://api.github.com/users/gperinazzo&quot;, &quot;html_url&quot;: &quot;https://github.com/gperinazzo&quot;, &quot;followers_url&quot;: &quot;https://api.github.com/users/gperinazzo/followers&quot;, &quot;following_url&quot;: &quot;https://api.github.com/users/gperinazzo/following&#123;/other_user&#125;&quot;, &quot;gists_url&quot;: &quot;https://api.github.com/users/gperinazzo/gists&#123;/gist_id&#125;&quot;, &quot;starred_url&quot;: &quot;https://api.github.com/users/gperinazzo/starred&#123;/owner&#125;&#123;/repo&#125;&quot;, &quot;subscriptions_url&quot;: &quot;https://api.github.com/users/gperinazzo/subscriptions&quot;, &quot;organizations_url&quot;: &quot;https://api.github.com/users/gperinazzo/orgs&quot;, &quot;repos_url&quot;: &quot;https://api.github.com/users/gperinazzo/repos&quot;, &quot;events_url&quot;: &quot;https://api.github.com/users/gperinazzo/events&#123;/privacy&#125;&quot;, &quot;received_events_url&quot;: &quot;https://api.github.com/users/gperinazzo/received_events&quot;, &quot;type&quot;: &quot;User&quot;, &quot;site_admin&quot;: false, &quot;name&quot;: null, &quot;company&quot;: null, &quot;blog&quot;: &quot;&quot;, &quot;location&quot;: null, &quot;email&quot;: &quot;gperinazzo@gmail.com&quot;, &quot;hireable&quot;: null, &quot;bio&quot;: null, &quot;twitter_username&quot;: null, &quot;public_repos&quot;: 21, &quot;public_gists&quot;: 0, &quot;followers&quot;: 4, &quot;following&quot;: 0, &quot;created_at&quot;: &quot;2014-11-24T01:48:29Z&quot;, &quot;updated_at&quot;: &quot;2020-11-08T00:34:34Z&quot;&#125;</code></pre><p>计算机可以很容易地读取它。即使是人也能读，但如果 JSON 文件以合适的格式显示，那么阅读就会简单很多。理想中的 JSON 文件应该是这样读的：</p><pre><code>&#123;  &quot;login&quot;: &quot;gperinazzo&quot;,  &quot;id&quot;: 9922687,  &quot;node_id&quot;: &quot;MDQ6VXNlcjk5MjI2ODc=&quot;,  &quot;avatar_url&quot;: &quot;https://avatars0.githubusercontent.com/u/9922687?v=4&quot;,  &quot;gravatar_id&quot;: &quot;&quot;,  &quot;url&quot;: &quot;https://api.github.com/users/gperinazzo&quot;,  &quot;html_url&quot;: &quot;https://github.com/gperinazzo&quot;,  &quot;followers_url&quot;: &quot;https://api.github.com/users/gperinazzo/followers&quot;,  &quot;following_url&quot;: &quot;https://api.github.com/users/gperinazzo/following&#123;/other_user&#125;&quot;,  &quot;gists_url&quot;: &quot;https://api.github.com/users/gperinazzo/gists&#123;/gist_id&#125;&quot;,  &quot;starred_url&quot;: &quot;https://api.github.com/users/gperinazzo/starred&#123;/owner&#125;&#123;/repo&#125;&quot;,  &quot;subscriptions_url&quot;: &quot;https://api.github.com/users/gperinazzo/subscriptions&quot;,  &quot;organizations_url&quot;: &quot;https://api.github.com/users/gperinazzo/orgs&quot;,  &quot;repos_url&quot;: &quot;https://api.github.com/users/gperinazzo/repos&quot;,  &quot;events_url&quot;: &quot;https://api.github.com/users/gperinazzo/events&#123;/privacy&#125;&quot;,  &quot;received_events_url&quot;: &quot;https://api.github.com/users/gperinazzo/received_events&quot;,  &quot;type&quot;: &quot;User&quot;,  &quot;site_admin&quot;: false,  &quot;name&quot;: null,  &quot;company&quot;: null,  &quot;blog&quot;: &quot;&quot;,  &quot;location&quot;: null,  &quot;email&quot;: &quot;gperinazzo@gmail.com&quot;,  &quot;hireable&quot;: null,  &quot;bio&quot;: null,  &quot;twitter_username&quot;: null,  &quot;public_repos&quot;: 21,  &quot;public_gists&quot;: 0,  &quot;followers&quot;: 4,  &quot;following&quot;: 0,  &quot;created_at&quot;: &quot;2014-11-24T01:48:29Z&quot;,  &quot;updated_at&quot;: &quot;2020-11-08T00:34:34Z&quot;&#125;</code></pre><p>可以使用大多数的文本编辑器和一些插件以合适的格式显示它。然而，如果在终端中，或者想在 shell 脚本中这么做，事情会有所不同。对于一个已最小化过的 JSON 文件，有同样的办法在 Linux 终端中漂亮地输出它。</p><p>jq 是一个命令行 JSON 处理器。可以用它来切分、过滤、映射和转换结构化数据。可以使用 apt 命令在 Ubuntu 上安装它：</p><pre><code>sudo apt install jqjq . ***.json</code></pre><p>或者</p><pre><code>cat ***.json | jq</code></pre><p>如果想用漂亮的格式修改原来的 JSON 文件，可以把解析后的输出结果用管道传送到一个新的文件中，然后覆盖原来的 JSON 文件。</p><pre><code>jq . ***.json &gt; ###.json</code></pre><p>对一个格式良好的 JSON 文件进行最小化，可以使用选项 -c。</p><pre><code>jq -c &lt; ###.json</code></pre><p>如果系统中安装有python3，可以再终端中使用以下命令：</p><pre><code>python3 -m json.tool ***.json</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;JSON 文件非常棒，因为它们以人类可读的格式存储数据集合。然而，如果 JSON 文件被最小化过，那么阅读 JSON 文件可能会很痛苦。以下面的JSON文件为例。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;#123;&amp;quot;login&amp;quot;: &amp;quot;gperinazz</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>keyword_extraction</title>
+    <link href="http://example.com/2021/01/12/keyword-extraction/"/>
+    <id>http://example.com/2021/01/12/keyword-extraction/</id>
+    <published>2021-01-12T06:14:54.000Z</published>
+    <updated>2021-01-12T12:02:45.233Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关键词提取"><a href="#关键词提取" class="headerlink" title="关键词提取"></a>关键词提取</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>关键字提取(又称关键字检测或关键字分析)是一种文本分析技术，可以自动从文本中提取最常用、最重要的单词和表达式，它有助于总结文本内容和识别讨论的主要话题。  </p><p>文本分析使用带有自然语言处理(NLP)的机器学习人工智能(AI)来分解人类语言，使其能够被机器理解和分析。关键字分析可以从各种文本中找到关键字：常规文件和商业报告，社交媒体评论，在线论坛和评论，新闻报道，等等。假设您想分析关于您的产品的数千条在线评论。关键字提取可以帮助您筛选整个数据集，并在几秒钟内获得最适合描述每个评论的词。通过这种方式，您可以很容易地自动地看到您的客户最经常提到的内容，从而为您的团队节省数小时的手工处理时间。</p><p>有一些免费的词云生成器可以比较直观地体现关键词，例如<a href="https://monkeylearn.com/blog/word-art/">Word clouds</a>。</p><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul><li><p>Simple Statistical Approaches</p><p>主要包括词频、词搭配和共现、TF-IDF(术语频率反向文档频率的缩写)和RAKE(快速自动关键字提取)，基于统计的方法只依赖于统计数据，可能会忽略那些只被提到一次但仍然应该被认为是相关的相关单词或短语。</p><p>1、词频</p><p>词频包括列出在一篇文章中重复次数最多的单词和短语。这对于很多目的都很有用，从在一组产品评审中识别反复出现的术语，到发现客户支持交互中最常见的问题。然而，词频方法认为文档只是一个“单词袋”，而不考虑与含义、结构、语法和单词序列相关的关键方面。例如，这种关键字提取方法无法检测到同义词，从而忽略了非常有价值的信息。</p><p>2、单词搭配和共现</p><p>也被称为N-gram统计，单词搭配和共现有助于理解文本的语义结构，并将多个单词算作一个单词。<br>搭配是指经常放在一起的词。最常见的搭配类型是bi-grams(两个相邻的词，如“客户服务”、“视频电话”或“电子邮件通知”)和trig(三个词组成的组，如“易于使用”或“社交媒体渠道”)。<br>另一方面，共现现象是指在同一语料库中倾向于共现的单词。它们不一定是相邻的，但它们在语义上确实具有相似性。</p><p>3、TF-IDF</p><p>TF-IDF表示词频-逆文档频率，用来衡量文档集合中一个单词对文档的重要性。<br>该度量计算单词在文本中出现的次数(术语频率)，并将其与逆向文档频率(该单词在整个数据集中的罕见或常见程度)进行比较，将这两个量相乘就提供了文档中单词的TF-IDF分数。分数越高，这个词就越与文档相关。<br>当涉及到关键字提取时，这个指标可以帮助您识别文档中最相关的词(得分较高的词)，并将它们视为关键词。</p><p>4、RAKE</p><p>快速自动关键字提取(RAKE)是一种著名的关键字提取方法，它使用stopwords和短语分隔符列表来检测一段文本中最相关的单词或短语，以以下文本为例:<br><em>Keyword extraction is not that difficult after all. There are many libraries that can help you with keyword extraction. Rapid automatic keyword extraction is one of those.</em><br>该方法所做的第一件事是将文本拆分为一个单词列表，并从该列表中删除stopwords。这将返回一个所谓内容词的列表。<br>假设我们的stopwords和短语分隔符列表如下:<br>stopwords = [is, not, that, there, are, can, you, with, of, those, after, all, one]</p><p>分隔符=[., ,]<br>然后，我们的8个内容词的列表将像这样:<br>content_words =[keyword, extraction, difficult, many, libraries, help, rapid, automatic]<br>然后，该算法以短语分隔符和停止词分隔文本，以创建候选表达式。所以，候选人的关键短语如下:<br><em>Keyword extraction is not that difficult after all. There are many libraries that can help you with keyword extraction. Rapid automatic keyword extraction is one of those.</em><br>一旦文本被分割，该算法就会创建一个单词共现矩阵。每一行显示一个给定的内容词与候选短语中每个其他内容词共现的次数。对于上面的例子，矩阵看起来像这样:</p><p><img src="https://monkeylearn.com/static/74b6799b8c44da2b1c0d2eb7f9fe27df/f3e6b/rake-matrix.png" alt="RAKE Matrix"></p><p>在这个矩阵建立之后，单词会得到一个分数。这一点可以计算为一个词的程度在矩阵(即共生的数量的总和词与其他词在文本内容),随着词频的次数(即这个词出现在文本),或作为其频率除以这个词的程度。<br>如果我们计算每个单词的学位分数除以频率分数，它们看起来会像这样:</p><p><img src="https://monkeylearn.com/static/996e4b1308bd28ed6d4d726a2d051b28/2cbcd/rake-frequency-score.png" alt="RAKE frequency score"></p><p>这些表达式也会给出一个分数，这个分数是每个单词的分数之和。如果我们要计算上面粗体部分的得分，它们会是这样的:</p><p><img src="https://monkeylearn.com/static/d7794d12e177691b52b6f24fecd98adc/1b198/rake-phrases.png" alt="RAKE phrases"></p><p>如果两个关键字或关键字短语以相同的顺序同时出现两次以上，不管关键字短语在原始文本中包含多少stopwords，都会创建一个新的关键字短语。该关键字的得分计算方式与单个关键字的得分计算方式相同。<br>如果一个关键字或关键字短语的分数属于top T分数，其中T是您想要提取的关键字的数目，则选择该关键字或关键字短语。根据<a href="https://www.researchgate.net/publication/227988510_Automatic_Keyword_Extraction_from_Individual_Documents">原始论文</a>，T默认了文件中三分之一的内容词。<br>对于上面的示例，该方法将返回前3个关键字，根据我们定义的分数，这将是rapid automatic keyword extraction(13.33)、keyword extraction(5.33)和many libraries(4.0)。</p></li><li><p>语言学方法</p><p>关键词提取方法通常利用关于文本及其包含的单词的语言信息。有时，使用词法或句法信息(例如单词的词性或句子的依赖语法表示中单词之间的关系)来确定应该提取哪些关键字。在某些情况下，某些PoS会得到更高的分数(例如名词和名词短语)，因为它们通常比其他类别包含更多关于文本的信息。</p></li><li><p>图论方法</p><p>基于图的关键字提取的基本思想总是相同的:根据从图的结构中获取的一些信息来度量顶点的重要性，从而提取最重要的顶点。<br>一旦建立了一个图，就该确定如何度量顶点的重要性了。有许多不同的选择，其中大部分在本文中处理。有些方法选择测量顶点的度数。<br>顶点的度等于边的数量或连接顶点的土地(也称为度)+边的数量开始的顶点(也称为度)除以最大度(=图的顶点数- 1)。这个公式来计算一个顶点的度:</p><p><strong>Dv = (Dvin + Dvout) / (N - 1)</strong></p><p><img src="https://monkeylearn.com/static/b140909a8a4315b075d71be77daa76ce/61b91/graph-with-degree%402x.png" alt="Numeric graph with degree"></p><p>其他一些方法测量到一个给定顶点的直接顶点的数量(称为邻域大小)。</p><p><img src="https://monkeylearn.com/static/f48741f2f58f80d67ba4333c05113ed3/6648e/graph-with-neighborhood-size%402x.png" alt="Numeric graph with neighborhood size"></p><p>无论选择的度量是什么，每个顶点都会有一个分数，它将决定是否将其作为关键字提取。<br>以以下文本为例:<br><em>Automatic1 graph-based2 keyword3 extraction4 is pretty5 straightforward6. A document7 is represented8 as a graph9 and a score10 is given11 to each of the vertices12 in the graph13. Depending14 on the score15 of a vertex16, it might be chosen17 as a keyword18.</em><br>如果我们衡量社区大小上面的示例图的依赖性只包含有实词(编号1 - 18在文本),提取的关键词会被自动等基于关键字提取自附近的大小头名词提取(等于3/17)是最高的。</p></li><li><p>机器学习方法</p><p>1、条件随机域<br>条件随机场(CRF)是一种统计方法，通过对文本中出现的单词序列的不同特征进行加权来学习模式。这种方法考虑上下文和不同变量之间的关系，以便作出预测。<br>使用条件随机场允许您创建复杂和丰富的模式。这种方法的另一个优点是它的泛化能力:一旦模型用某个领域的例子进行了训练，它就可以很容易地将它所学到的知识应用到其他领域。<br>缺点是，为了使用条件随机场，您需要有很强的计算能力来计算所有单词序列的所有特征的权重。</p><p>评估关键字提取器的性能<br>在评估关键字提取器的性能时，您可以使用机器学习中的一些标准指标:准确性、精度、召回率和F1分数。然而，这些指标并不能反映部分匹配;他们只考虑所提取的片段与该标记的正确预测之间的完美匹配。<br>幸运的是，还有一些其他指标能够捕获部分匹配。一个例子就是ROUGE。<br>ROUGE(面向回忆的基sting评价替补研究)是一组比较源文本和提取词之间不同参数(如重叠词的数量)的指标。参数包括序列的长度和数目，可以手动定义。</p></li><li><p>混合方法</p><p>混合之前的方法。</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;关键词提取&quot;&gt;&lt;a href=&quot;#关键词提取&quot; class=&quot;headerlink&quot; title=&quot;关键词提取&quot;&gt;&lt;/a&gt;关键词提取&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简</summary>
+      
+    
+    
+    
+    
+    <category term="NLP" scheme="http://example.com/tags/NLP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nlp工具总结</title>
+    <link href="http://example.com/2021/01/12/nlp%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/01/12/nlp%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/</id>
+    <published>2021-01-12T02:44:43.000Z</published>
+    <updated>2021-01-12T06:06:38.717Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="NLP工具总结"><a href="#NLP工具总结" class="headerlink" title="NLP工具总结"></a>NLP工具总结</h1><ul><li>MonkeyLearn相关解决方案</li><li></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;NLP工具总结&quot;&gt;&lt;a href=&quot;#NLP工具总结&quot; class=&quot;headerlink&quot; title=&quot;NLP工具总结&quot;&gt;&lt;/a&gt;NLP工具总结&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;MonkeyLearn相关解决方案&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mysql使用总结</title>
+    <link href="http://example.com/2021/01/12/mysql%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/01/12/mysql%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-01-12T02:29:10.000Z</published>
+    <updated>2021-01-12T02:40:48.709Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="MySQL使用总结"><a href="#MySQL使用总结" class="headerlink" title="MySQL使用总结"></a>MySQL使用总结</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;MySQL使用总结&quot;&gt;&lt;a href=&quot;#MySQL使用总结&quot; class=&quot;headerlink&quot; title=&quot;MySQL使用总结&quot;&gt;&lt;/a&gt;MySQL使用总结&lt;/h1&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>rust使用总结</title>
+    <link href="http://example.com/2021/01/11/rust%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/01/11/rust%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-01-11T15:03:15.000Z</published>
+    <updated>2021-01-11T15:15:39.229Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="rust使用总结"><a href="#rust使用总结" class="headerlink" title="rust使用总结"></a>rust使用总结</h1><ul><li><p>Rust Report Card - 为你的 Rust 代码生成质量报告</p><p><strong>简介：</strong></p><p>官网<code>https://rust-reportcard.xuri.me</code>，Rust Report Card 服务，通过近 500 个代码检测项帮助分析你的 Rust 代码中的潜在质量问题，还可获得 badge 徽章。  </p><p>该服务基于 rust-clippy 中 定义的 lint 规则对 Rust 进行静态代码分析扫描，在 Rust 编译器检查的基础之上帮你更进一步，编写出更好的代码，检查内容涵盖可优化性能写法、可简化代码写法、代码惯用风格更符合最佳实践、未使用变量和 cargo 声明文件检查等。  </p><p>Rust Report Card 提供了增量代码扫描、代码质量评级、徽章生成、协议检查和内部开源 Rust 代码质量评分排行等功能。</p><p><strong>代码质量评级与得分规则：</strong></p><p>3+</p><p>评级   得分      Badge  </p><p>A+      &gt; 90   <img src="https://cdn.learnku.com/uploads/images/202101/11/74/fbdNH6ReY9.svg" alt="img"></p><p>A        &gt; 80   <img src="https://cdn.learnku.com/uploads/images/202101/11/74/5gVwuPoSeR.svg" alt="img"></p><p>B        &gt; 70   <img src="https://cdn.learnku.com/uploads/images/202101/11/74/k5EGbqGY21.svg" alt="img"></p><p>C        &gt; 60   <img src="https://cdn.learnku.com/uploads/images/202101/11/74/qGQsMIq2US.svg" alt="img"></p><p>D        &gt; 50   <img src="https://cdn.learnku.com/uploads/images/202101/11/74/BxiUd4710y.svg" alt="img"></p><p>E         &gt; 40  <img src="https://cdn.learnku.com/uploads/images/202101/11/74/q9QfwKrAM4.svg" alt="img"></p><p>F       &lt;= 40  <img src="https://cdn.learnku.com/uploads/images/202101/11/74/aCbYUmx0p4.svg" alt="img"></p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;rust使用总结&quot;&gt;&lt;a href=&quot;#rust使用总结&quot; class=&quot;headerlink&quot; title=&quot;rust使用总结&quot;&gt;&lt;/a&gt;rust使用总结&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Rust Report Card - 为你的 Rust 代码生成质量报告&lt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>typescript使用总结</title>
+    <link href="http://example.com/2021/01/11/typescript%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/01/11/typescript%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-01-11T13:46:51.000Z</published>
+    <updated>2021-01-11T15:00:26.947Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Type-Script使用总结"><a href="#Type-Script使用总结" class="headerlink" title="Type Script使用总结"></a>Type Script使用总结</h1><ul><li>安装<code>typescript</code></li></ul><pre><code>sudo apt install npmsudo npm install -g typescript</code></pre><p>通过<code>tsc</code>命令确认安装完成</p><pre><code>tsc -v</code></pre><ul><li>运行<code>ts</code>文件</li></ul><pre><code>tsc ***.ts // 得到***.js文件node ***.js // 使用node命令执行js文件</code></pre><ul><li><p>运行<code>ts</code>文件出现以下错误</p><pre><code>Cannot find module &#39;fs&#39;</code></pre><p>执行以下命令：</p><pre><code>sudo npm install @types/node</code></pre></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Type-Script使用总结&quot;&gt;&lt;a href=&quot;#Type-Script使用总结&quot; class=&quot;headerlink&quot; title=&quot;Type Script使用总结&quot;&gt;&lt;/a&gt;Type Script使用总结&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;安装&lt;code&gt;type</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python使用总结</title>
+    <link href="http://example.com/2021/01/09/python%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/01/09/python%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-01-09T14:20:08.000Z</published>
+    <updated>2021-02-02T12:13:37.973Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="python使用总结"><a href="#python使用总结" class="headerlink" title="python使用总结"></a>python使用总结</h1><ul><li><p>python numpy real函数</p><p>用法：</p><pre><code class="lang-python">numpy.real(val)</code></pre><p>返回复杂参数的实部。</p><p>| 参数：   | <strong>val**</strong>：<strong> ： array_like输入数组。                        |<br>| ———— | —————————————————————————————— |<br>| 返回值： | </strong>out<strong>**：</strong> ： ndarray或标量复杂参数的实际组成部分。如果val是实数，则将val的类型用于输出。如果val具有复杂元素，则返回的类型为float。 |</p><p>例子：</p><pre><code class="lang-python">&gt;&gt;&gt; a = np.array([1+2j, 3+4j, 5+6j])&gt;&gt;&gt; a.realarray([1.,  3.,  5.])&gt;&gt;&gt; a.real = 9&gt;&gt;&gt; aarray([9.+2.j,  9.+4.j,  9.+6.j])&gt;&gt;&gt; a.real = np.array([9, 8, 7])&gt;&gt;&gt; aarray([9.+2.j,  8.+4.j,  7.+6.j])&gt;&gt;&gt; np.real(1 + 1j)1.0</code></pre><p>源码：</p><p><strong>numpy.real的API实现见：</strong><a href="https://vimsky.com/cache/index.php?source=https%3A//github.com/numpy/numpy/blob/v1.17.0/numpy/lib/type_check.py">[源代码]</a></p></li><li><p>python执行ubuntu terminal命令</p><pre><code>import os                                                        os.system(&#39;&lt;ubuntu 命令&gt;&#39;)</code></pre><p>在执行ubuntu terminal命令时，如果需要切换路径：</p><pre><code>os.chdir(&#39;&lt;路径名称&gt;&#39;)</code></pre></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;python使用总结&quot;&gt;&lt;a href=&quot;#python使用总结&quot; class=&quot;headerlink&quot; title=&quot;python使用总结&quot;&gt;&lt;/a&gt;python使用总结&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;python numpy real函数&lt;/p&gt;
+&lt;p&gt;用法</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu使用总结</title>
+    <link href="http://example.com/2021/01/09/ubuntu%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/01/09/ubuntu%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-01-09T08:21:12.000Z</published>
+    <updated>2021-01-10T02:44:46.361Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ubuntu-使用总结"><a href="#ubuntu-使用总结" class="headerlink" title="ubuntu 使用总结"></a>ubuntu 使用总结</h1><ul><li><p>ubuntu查看环境变量有三个命令</p><p>1、<code>env</code></p><p>env命令是environment的缩zhi写，用dao于列出所zhuan有的环境变量</p><p>2、<code>export</code></p><p>单独使用<code>export</code>命令也可以像<code>env</code>列出所有的环境变量，不过<code>export</code>命令还有其他额外的功能</p><p>3、<code>echo $PATH</code></p><p><code>echo $PATH</code>用于列出变量PATH的值，里面包含了已添加的目录</p></li><li><p>ubuntu修改环境变量：</p><p>1、使用<code>set</code>命令</p><p><code>set</code>查看所有本地定义的环境变量，<code>unset</code>可以删除指定的环境变量。</p><p>2、使用<code>export</code>命令</p><p><code>export &lt;变量名称&gt;=$&lt;变量名称&gt;:&lt;变量值&gt; //等号两边一定不能有空格</code></p><p>3、修改.<code>bashrc</code>文件</p><pre><code>vi ~/.bashrc   //编辑.bashrc文件 //在最后一行添上: export &lt;变量名称&gt;=$&lt;变量名称&gt;:&lt;变量值&gt;   //等号两边没空格//保存退出source ~/.bashrc</code></pre><p><strong>注意，</strong>常用的环境变量：</p><ul><li><p>PATH 决定了shell将到哪些目录中寻找命令或程序</p></li><li><p>HOME 当前用户主目录</p></li><li><p>HISTSIZE　历史记录数</p></li><li><p>LOGNAME 当前用户的登录名</p></li><li><p>HOSTNAME　指主机的名称</p></li><li><p>SHELL 　　当前用户Shell类型</p></li><li><p>LANGUGE 　语言相关的环境变量，多语言可以修改此环境变量</p></li><li><p>MAIL　　　当前用户的邮件存放目录</p></li><li><p>PS1　　　基本提示符，对于root用户是#，对于普通用户是$</p></li></ul></li><li><p>ubuntu中<code>&gt;</code>和<code>&gt;&gt;</code>和<code>&lt;</code>的区别</p><p>1、输入输出的区bai别：</p><p><code>&gt;&gt;</code>和<code>&gt;</code>都属于输出重定向，<code>&lt;</code>属于输入重定向。</p><p>2、文件内容的区别：</p><p><code>&gt;</code>会覆盖目标的原有内容。当文件存在时会先删除原文件，再重新创建文件，然后把内容写入该文件；否则直接创建文件。</p><p><code>&gt;&gt;</code>会在目标原有内容后追加内容。当文件存在时直接在文件末尾进行内容追加，不会删除原文件；否则直接创建文件。</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;ubuntu-使用总结&quot;&gt;&lt;a href=&quot;#ubuntu-使用总结&quot; class=&quot;headerlink&quot; title=&quot;ubuntu 使用总结&quot;&gt;&lt;/a&gt;ubuntu 使用总结&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ubuntu查看环境变量有三个命令&lt;/p&gt;
+&lt;p&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>git使用总结</title>
+    <link href="http://example.com/2021/01/09/git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/01/09/git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-01-09T08:18:40.000Z</published>
+    <updated>2021-02-04T03:00:19.957Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="git-使用总结"><a href="#git-使用总结" class="headerlink" title="git 使用总结"></a>git 使用总结</h1><ul><li><p><code>git log --stat</code>的使用</p><p>1、显示最近一次被修改文件的修改：统计信息，添加或删除了多少行。</p><p><code>git log -1 --stat</code></p><p>2、显示最近两条的修改</p><p><code>git log --stat -2</code></p><p>3、显示具体的修改</p><p><code>git log -p -2</code></p><p>4、显示用户为<code>czd</code>的修改</p><p><code>git log --stat --author=czd</code></p><p>5、查看单个文件<code>sensor-dev.c</code>最近三次修改的记录</p><p><code>git log --stat -3 drivers/input/sensors/sensor-dev.c</code></p><p>6、如果想不分页输出全部log日志</p><p><code>git --no-pager log</code></p></li><li><p>当使用<code>git --no-pager log --stat &gt;&gt; temp.txt</code>出现以下报错信息时：</p><pre><code>warning: inexact rename detection was skipped due to too many files.warning: you may want to set your diff.renameLimit variable to at least 6567 and retry the command.</code></pre><p>修改git的<code>diff.renameLimit</code>变量值</p><pre><code>git config diff.renameLimit 2000000</code></pre></li></ul><ul><li><p>github api使用总结</p><p>1、得到某个仓库的贡献者</p><pre><code>api.github.com/repos/&lt;项目所属组织或个人&gt;/&lt;项目名称&gt;/contributors</code></pre><p>返回的json中contributions即为commit次数。</p><p>2、得到某一用户在github上面贡献了多少库  </p><p><a href="https://github.com/benjycui">benjycui</a>编写了一个实现该功能的<a href="https://github.com/benjycui/open-source-hero">工具</a>。</p></li><li><p>修改<code>git commit</code>的默认编辑器</p><p>进入项目的根目录下，使用<code>vim ./.git/config and add the &quot;editor = vim&quot;</code>或<code>git config --global core.editor vim</code>将默认编辑器从GNA nano修改为vim。</p></li><li><p>新建一个仓库并和远程仓库连接</p><p>1、<code>mkdir new_repo</code></p><p>2、<code>cd new_repo</code></p><p>3、<code>git init</code></p><p>4、在github或gitee上新建一个同名仓库</p><p>5、<code>git remote add &lt;remote_repo_name&gt; &lt;remote_repo_address&gt;</code></p></li><li><p>分支</p><p>1、查看所有分支</p><p><code>git branch</code></p><p>2、选择某个特定的分支</p><p><code>git checkout &lt;branch name&gt;</code></p><p>3、新建一个分支并选定</p><p><code>git checkout -b &lt;branch name&gt;</code></p></li><li></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;git-使用总结&quot;&gt;&lt;a href=&quot;#git-使用总结&quot; class=&quot;headerlink&quot; title=&quot;git 使用总结&quot;&gt;&lt;/a&gt;git 使用总结&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git log --stat&lt;/code&gt;的使用&lt;/p&gt;
+&lt;p</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu服务器-Nginx初步配置及站点部署</title>
+    <link href="http://example.com/2021/01/08/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8-Nginx%E5%88%9D%E6%AD%A5%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%AB%99%E7%82%B9%E9%83%A8%E7%BD%B2/"/>
+    <id>http://example.com/2021/01/08/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8-Nginx%E5%88%9D%E6%AD%A5%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%AB%99%E7%82%B9%E9%83%A8%E7%BD%B2/</id>
+    <published>2021-01-08T01:51:13.000Z</published>
+    <updated>2021-01-08T02:11:46.155Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ubuntu服务器-Nginx初步配置及站点部署"><a href="#ubuntu服务器-Nginx初步配置及站点部署" class="headerlink" title="ubuntu服务器-Nginx初步配置及站点部署"></a>ubuntu服务器-Nginx初步配置及站点部署</h1><ul><li><p>使用SSH远程登录服务器  </p><pre><code>ssh root@***.***.***.***</code></pre></li><li><p>安装Nginx并启动服务器</p><pre><code>apt updateapt install nginxsystemctl start nginx</code></pre></li><li><p>将项目上传到服务器  </p><p>可以选择本地上传或者 github clone。  </p></li><li><p>编辑默认的default <code>root /var</code>默认路径，并将代码移动至路径下。</p><pre><code>cd /etc/nginx/sites-availablevim default(rewrite) root /var/www/sitescd /var/wwwmv &lt;code path&gt; sites</code></pre></li><li><p>检测nginx配置文件，重启nginx服务器</p><pre><code>nginx -tservice nginx restart</code></pre></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;ubuntu服务器-Nginx初步配置及站点部署&quot;&gt;&lt;a href=&quot;#ubuntu服务器-Nginx初步配置及站点部署&quot; class=&quot;headerlink&quot; title=&quot;ubuntu服务器-Nginx初步配置及站点部署&quot;&gt;&lt;/a&gt;ubuntu服务器-Ngin</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基于Github和Hexo搭建个人网站</title>
+    <link href="http://example.com/2021/01/06/website-based-github-hexo/"/>
+    <id>http://example.com/2021/01/06/website-based-github-hexo/</id>
+    <published>2021-01-06T12:13:18.000Z</published>
+    <updated>2021-02-02T14:37:51.363Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基于Github和Hexo搭建个人网站"><a href="#基于Github和Hexo搭建个人网站" class="headerlink" title="基于Github和Hexo搭建个人网站"></a>基于Github和Hexo搭建个人网站</h1><ul><li>安装并配置 Git</li></ul><ol><li>Git 是目前世界上最先进的分布式版本控制系统（没有之一）,使用 Git 的目的是为了将网站从本地提交上服务器（GitHub）上面去。具体的 Git 操作细节可以查看<a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的教程</a>，讲的十分详细。  </li><li>在终端进行操作，设置 user.name 和 user.email 配置信息，为了方便推荐设置为全局。  <pre><code>git config --global user.name &quot;GitHub账号名称&quot;git config --global user.email &quot;GitHub注册邮箱&quot;</code></pre>** 通过注册的邮箱生成 ssh 密钥文件：  <pre><code>ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;</code></pre>直接三个回车，默认不需要设置密码。最后得到了两个文件： <code>id_rsa</code> 和 <code>id_rsa.pub</code>。打开 <code>id_rsa.pub</code> 文件，将里面的内容全部复制到 Github 上。添加 <code>SSH key</code> 后，进行测试。  <pre><code>ssh -T git@github.com</code></pre>你将会看到：  <pre><code>The authenticity of host &#39;github.com (207.97.227.239)&#39; can&#39;t be established.RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.Are you sure you want to continue connecting (yes/no)?</code></pre>选择<code>yes</code>后  <pre><code>Hi ***! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre></li><li>新建一个 Github 仓库，仓库名为：<code>&lt;github账号名称&gt;.github.io</code></li></ol><ul><li>安装Node.js<br>可以根据自己的系统自行搜索安装方法，ubuntu 上的安装方法为：<pre><code>sudo apt-get install nodejs</code></pre></li><li>安装并配置 Hexo  </li></ul><ol><li>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。  <pre><code>sudo npm install -g hexo-cli</code></pre></li><li>初始化博客  <pre><code>hexo init myBlog</code></pre></li><li>进入<code>myBlog</code>文件夹中，输入  <pre><code>hexo server</code></pre>或者<pre><code>hexo s</code></pre></li><li>打开浏览器输入地址：<pre><code>localhost:4000</code></pre>这样就可以看见博客了。  </li><li>添加文章<br>(1) 可以将你平时写的文章直接导入到 <code>_posts</code> 文件夹里，注意文章类型得是 <code>md</code> 格式。<br>(2) 可以写新文章，执行以下命令  <pre><code>hexo new [layout] &lt;title&gt;</code></pre>可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。  </li><li>生成静态网页  <pre><code>hexo generate</code></pre>或者<pre><code>hexo g</code></pre></li></ol><ul><li>将网页部署到 Github 上<br>Hexo 提供了快速方便的一键部署功能，只需一条命令就能将网站部署到服务器上。在开始之前，必须先在 <code>_config.yml</code> 中修改参数，一个正确的部署配置中至少要有 <code>type</code> 参数，例如：<pre><code>deploy:type: gitrepo: https://github.com/***/***.github.iobranch: master</code></pre>之后输入以下命令：<pre><code>hexo deploy</code></pre>或者<pre><code>hexo d</code></pre>稍等片刻，网站就已经部署好了，可以在浏览器输入 <code>***.github.io</code>，这样一个免费的博客就已经搭建好了。</li><li><p>选择主题<br>Hexo 默认的主题比较一般，可以在<a href="https://hexo.io/themes/index.html">Hexo的主题网站</a>进行主题的挑选更换。将下好的主题安放在themes文件夹内，同时在<code>_config.yml</code>中进行主题修改就好了。一般每个主题都会有比较详细的说明文档，按照文档进行修改即可。</p></li><li><p>Hexo渲染LaTeX公式<br>Hexo渲染主题的两个重要因素：mathjax和kramed，前者是数学公式渲染引擎，后者是Hexo的markdown渲染引擎，hexo默认渲染引擎是marked，但是它不支持mathjax，因此需要替换引擎。</p><h5 id="一、Hexo添加mathjax"><a href="#一、Hexo添加mathjax" class="headerlink" title="一、Hexo添加mathjax"></a>一、Hexo添加mathjax</h5><ol><li><p>如果hexo安装有<code>hexo-math</code>,需要先卸载它。卸载命令：</p><pre><code class="lang-bash">npm uninstall hexo-math --save</code></pre></li><li><p>安装mathjax，安装命令：</p><pre><code class="lang-bash">npm install hexo-renderer-mathjax --save</code></pre></li><li><p>hexo主题开启mathjax：</p><p>进入主题目录，编辑<code>_config.yml</code>，开启mathjax：</p><pre><code class="lang-yaml"># MathJax Supportmathjax:  enable: true  per_page: true</code></pre></li></ol></li><li><h5 id="二、hexo切换kramed引擎"><a href="#二、hexo切换kramed引擎" class="headerlink" title="二、hexo切换kramed引擎"></a>二、hexo切换kramed引擎</h5><ol><li><p>卸载marked引擎</p><pre><code class="lang-bash">npm uninstall hexo-renderer-marked --save</code></pre></li><li><p>安装kramed引擎</p><pre><code class="lang-bash">npm install hexo-renderer-kramed --save</code></pre></li><li><p>修改引擎bug</p><p>修改文件<code>/node_modules\kramed\lib\rules\inline.js</code>中<code>escape</code>和<code>em</code>两行，具体修改如下：</p><pre><code class="lang-js">//  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,  escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,</code></pre><p>这一步是在原基础上取消了对,{,}的转义(escape)。<br>同时把第20行的em变量也要做相应的修改。</p><p>进入主题目录，编辑<code>_config.yml</code>，开启mathjax：</p><pre><code class="lang-js">//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,  em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code></pre><p>重新启动hexo:</p><pre><code class="lang-bash">hexo clean &amp;&amp; hexo g -d</code></pre></li></ol></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;基于Github和Hexo搭建个人网站&quot;&gt;&lt;a href=&quot;#基于Github和Hexo搭建个人网站&quot; class=&quot;headerlink&quot; title=&quot;基于Github和Hexo搭建个人网站&quot;&gt;&lt;/a&gt;基于Github和Hexo搭建个人网站&lt;/h1&gt;&lt;ul&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

@@ -1,39 +1,152 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang=en>
 <head>
-    <meta charset="UTF-8">
+    <!-- so meta -->
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
-     <link rel="shortcut icon" href= /img/favicon.ico >
-    <title>
-        CAKGOD
-    </title>
-    <meta name="description" content= 欢迎访问CAKGOD的辣鸡网站！！！ >
-    <meta name="keywords" content= Blog,Hexo,Theme,CAKGOD >
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="JSON 文件非常棒，因为它们以人类可读的格式存储数据集合。然而，如果 JSON 文件被最小化过，那么阅读 JSON 文件可能会很痛苦。以下面的JSON文件为例。 &amp;#123;&quot;login&quot;: &quot;gperinazzo&quot;, &quot;id&quot;: 9922687, &quot;node_id&quot;: &quot;MDQ6VXNlcjk5MjI2O">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在linux终端优雅地打印JSON文件">
+<meta property="og:url" content="http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/index.html">
+<meta property="og:site_name" content="CAKGOD">
+<meta property="og:description" content="JSON 文件非常棒，因为它们以人类可读的格式存储数据集合。然而，如果 JSON 文件被最小化过，那么阅读 JSON 文件可能会很痛苦。以下面的JSON文件为例。 &amp;#123;&quot;login&quot;: &quot;gperinazzo&quot;, &quot;id&quot;: 9922687, &quot;node_id&quot;: &quot;MDQ6VXNlcjk5MjI2O">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-25T07:30:53.000Z">
+<meta property="article:modified_time" content="2021-01-25T07:45:17.040Z">
+<meta property="article:author" content="CAKGOD">
+<meta name="twitter:card" content="summary">
     
-<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
-
     
-<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>在linux终端优雅地打印JSON文件</title>
+    <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.3.0"></head>
-<body id="bodyx">
-    <div class="hd posts">
-    <a href="/index.html"><i class="fa fa-home
- replay-btn" aria-hidden="true"></i></a>
-    <div class="post-title">
-        <p>
-            在linux终端优雅地打印JSON文件
-        </p>
-        <hr>
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="CAKGOD" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/01/25/github%E7%94%A8%E6%88%B7%E5%88%86%E6%9E%90/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/01/12/keyword-extraction/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&text=在linux终端优雅地打印JSON文件"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&title=在linux终端优雅地打印JSON文件"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&is_video=false&description=在linux终端优雅地打印JSON文件"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在linux终端优雅地打印JSON文件&body=Check out this article: http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&title=在linux终端优雅地打印JSON文件"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&title=在linux终端优雅地打印JSON文件"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&title=在linux终端优雅地打印JSON文件"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&title=在linux终端优雅地打印JSON文件"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&name=在linux终端优雅地打印JSON文件&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&t=在linux终端优雅地打印JSON文件"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
     </div>
-    <div class="post-content">
-        <p>JSON 文件非常棒，因为它们以人类可读的格式存储数据集合。然而，如果 JSON 文件被最小化过，那么阅读 JSON 文件可能会很痛苦。以下面的JSON文件为例。</p>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        在linux终端优雅地打印JSON文件
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">CAKGOD</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-01-25T07:30:53.000Z" itemprop="datePublished">2021-01-25</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>JSON 文件非常棒，因为它们以人类可读的格式存储数据集合。然而，如果 JSON 文件被最小化过，那么阅读 JSON 文件可能会很痛苦。以下面的JSON文件为例。</p>
 <pre><code>&#123;&quot;login&quot;: &quot;gperinazzo&quot;, &quot;id&quot;: 9922687, &quot;node_id&quot;: &quot;MDQ6VXNlcjk5MjI2ODc=&quot;, &quot;avatar_url&quot;: &quot;https://avatars0.githubusercontent.com/u/9922687?v=4&quot;, &quot;gravatar_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://api.github.com/users/gperinazzo&quot;, &quot;html_url&quot;: &quot;https://github.com/gperinazzo&quot;, &quot;followers_url&quot;: &quot;https://api.github.com/users/gperinazzo/followers&quot;, &quot;following_url&quot;: &quot;https://api.github.com/users/gperinazzo/following&#123;/other_user&#125;&quot;, &quot;gists_url&quot;: &quot;https://api.github.com/users/gperinazzo/gists&#123;/gist_id&#125;&quot;, &quot;starred_url&quot;: &quot;https://api.github.com/users/gperinazzo/starred&#123;/owner&#125;&#123;/repo&#125;&quot;, &quot;subscriptions_url&quot;: &quot;https://api.github.com/users/gperinazzo/subscriptions&quot;, &quot;organizations_url&quot;: &quot;https://api.github.com/users/gperinazzo/orgs&quot;, &quot;repos_url&quot;: &quot;https://api.github.com/users/gperinazzo/repos&quot;, &quot;events_url&quot;: &quot;https://api.github.com/users/gperinazzo/events&#123;/privacy&#125;&quot;, &quot;received_events_url&quot;: &quot;https://api.github.com/users/gperinazzo/received_events&quot;, &quot;type&quot;: &quot;User&quot;, &quot;site_admin&quot;: false, &quot;name&quot;: null, &quot;company&quot;: null, &quot;blog&quot;: &quot;&quot;, &quot;location&quot;: null, &quot;email&quot;: &quot;gperinazzo@gmail.com&quot;, &quot;hireable&quot;: null, &quot;bio&quot;: null, &quot;twitter_username&quot;: null, &quot;public_repos&quot;: 21, &quot;public_gists&quot;: 0, &quot;followers&quot;: 4, &quot;following&quot;: 0, &quot;created_at&quot;: &quot;2014-11-24T01:48:29Z&quot;, &quot;updated_at&quot;: &quot;2020-11-08T00:34:34Z&quot;&#125;
 </code></pre><p>计算机可以很容易地读取它。即使是人也能读，但如果 JSON 文件以合适的格式显示，那么阅读就会简单很多。理想中的 JSON 文件应该是这样读的：</p>
 <pre><code>&#123;
@@ -83,67 +196,143 @@ jq . ***.json
 </code></pre><p>如果系统中安装有python3，可以再终端中使用以下命令：</p>
 <pre><code>python3 -m json.tool ***.json
 </code></pre>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
     </div>
 
-    
-        <hr class="fhr">
-        <div id="vcomments"></div>
-    
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&text=在linux终端优雅地打印JSON文件"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&title=在linux终端优雅地打印JSON文件"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&is_video=false&description=在linux终端优雅地打印JSON文件"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在linux终端优雅地打印JSON文件&body=Check out this article: http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&title=在linux终端优雅地打印JSON文件"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&title=在linux终端优雅地打印JSON文件"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&title=在linux终端优雅地打印JSON文件"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&title=在linux终端优雅地打印JSON文件"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&name=在linux终端优雅地打印JSON文件&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/01/25/%E5%9C%A8linux%E7%BB%88%E7%AB%AF%E4%BC%98%E9%9B%85%E5%9C%B0%E6%89%93%E5%8D%B0JSON%E6%96%87%E4%BB%B6/&t=在linux终端优雅地打印JSON文件"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
 </div>
-    <div class="footer" id="footer">
-    <p><h4>Copyright © 2020 | Author: Your Name | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
     
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-        <span id="busuanzi_container_site_pv">Page Views: <span id="busuanzi_value_site_pv"></span></span>
-        <span class="post-meta-divider">|</span>
-        <span id="busuanzi_container_site_uv">Unique Visitors: <span id="busuanzi_value_site_uv"></span></span>
     
-    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
-        <input type="checkbox" name="switch" id="update_style">
-        <span class="el-switch-style"></span>
-    </label>
+    2016-2021
+    CAKGOD
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
 
-    <!--         <script type="text/javascript">
-    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
-    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-    </script> -->
-</p>
-</div>
+    </div>
+    <!-- styles -->
 
-<input type="hidden" id="web_style" value="black">
-<input type="hidden" id="valine_appid" value="NOsswOncKgc8HOxqo9oxIWlX-gzGzoHsz">
-<input type="hidden" id="valine_appKey" value="z1FihjWEbS8uIfUQdmCtK7zz">
-
-<script src="/libs/jquery.min.js"></script>
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 
-<script src="/libs/highlight/highlight.pack.js"></script>
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
 
-<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
 
-<script src="/js/js.js"></script>
+    <!-- jquery -->
 
-<style type="text/css">
-.v * {
-color: #698fca;
-}
-.v .vlist .vcard .vhead .vsys {
-color: #3a3e4a;
-}
-.v .vlist .vcard .vh .vmeta .vat {
-color: #638fd5;
-}
-.v .vlist .vcard .vhead .vnick {
-color: #6ba1ff;
-}
-.v a {
-color: #8696b1;
-}
-.v .vlist .vcard .vhead .vnick:hover {
-color: #669bfc;
-}
-</style>
-    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
