@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-02-04T02:48:50.577Z</updated>
+  <updated>2021-02-08T13:13:09.525Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>javascript使用总结</title>
+    <link href="http://example.com/2021/02/08/javascript%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/02/08/javascript%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-02-08T07:08:20.000Z</published>
+    <updated>2021-02-08T13:13:09.525Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JavaScript使用总结"><a href="#JavaScript使用总结" class="headerlink" title="JavaScript使用总结"></a>JavaScript使用总结</h1><h2 id="‘use-strict’"><a href="#‘use-strict’" class="headerlink" title="‘use strict’"></a>‘use strict’</h2><p>“use strict” 指令在 JavaScript 1.8.5 (ECMAScript5) 中新增。它不是一条语句，但是是一个字面量表达式，在 JavaScript 旧版本中会被忽略。”use strict” 的目的是指定代码在严格条件下执行。严格模式下你不能使用未声明的变量。</p><p>使用严格模式的优势可以消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为；</p><ul><li>消除代码运行的一些不安全之处，保证代码运行的安全；</li><li>提高编译器效率，增加运行速度；</li><li>为未来新版本的Javascript做好铺垫。</li></ul><p>“严格模式”体现了Javascript更合理、更安全、更严谨的发展方向，包括IE 10在内的主流浏览器，都已经支持它，许多大项目已经开始全面拥抱它。</p><h2 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h2><p>setTimeout() 是属于 window 的方法，该方法用于在指定的毫秒数后调用函数或计算表达式。语法格式可以是以下两种：</p><pre><code class="lang-javascript">setTimeout(要执行的代码, 等待的毫秒数)setTimeout(JavaScript 函数, 等待的毫秒数)</code></pre><p>setTimeout() 是设定一个指定等候时间（单位是千分之一秒，millisecond）, 时间到了，浏览器就会执行一个指定的代码。</p><h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><p>var 语句用于声明变量。JavaScript变量的创建也叫作“声明“一变量：</p><pre><code>var carName;</code></pre><p>变量声明后，变量为空 (没有值)。为变量赋值，操作如下:</p><pre><code>carName = &quot;Volvo&quot;;</code></pre><p>声明变量时，你同样可以为变量赋值：</p><pre><code>var carName = &quot;Volvo&quot;;</code></pre><h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h2><h3 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h3><p>所有浏览器都支持 window 对象，它表示浏览器窗口。所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。</p><p>全局变量是 window 对象的属性。全局函数是 window 对象的方法。甚至 HTML DOM 的 document 也是 window 对象的属性之一：</p><pre><code>window.document.getElementById(&quot;header&quot;);</code></pre><p>与此相同：</p><pre><code>document.getElementById(&quot;header&quot;);</code></pre><h3 id="window尺寸"><a href="#window尺寸" class="headerlink" title="window尺寸"></a>window尺寸</h3><p>有三种方法能够确定浏览器窗口的尺寸。对于Internet Explorer、Chrome、Firefox、Opera 以及 Safari：</p><ul><li><code>window.innerHeight</code> - 浏览器窗口的内部高度(包括滚动条)</li><li><code>window.innerWidth</code> - 浏览器窗口的内部宽度(包括滚动条)</li></ul><p>对于 Internet Explorer 8、7、6、5：</p><ul><li><code>document.documentElement.clientHeight</code></li><li><p><code>document.documentElement.clientWidth</code><br>或者</p></li><li><p><code>document.body.clientHeight</code></p></li><li><code>document.body.clientWidth</code></li></ul><h3 id="其他window方法"><a href="#其他window方法" class="headerlink" title="其他window方法"></a>其他window方法</h3><ul><li><code>window.open()</code> - 打开新窗口</li><li><code>window.close()</code> - 关闭当前窗口</li><li><code>window.moveTo()</code> - 移动当前窗口</li><li><code>window.resizeTo()</code> - 调整当前窗口的尺寸</li></ul><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;JavaScript使用总结&quot;&gt;&lt;a href=&quot;#JavaScript使用总结&quot; class=&quot;headerlink&quot; title=&quot;JavaScript使用总结&quot;&gt;&lt;/a&gt;JavaScript使用总结&lt;/h1&gt;&lt;h2 id=&quot;‘use-strict’&quot;&gt;&lt;a </summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>github-api使用总结</title>
+    <link href="http://example.com/2021/02/05/github-api%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2021/02/05/github-api%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-02-05T11:42:33.000Z</published>
+    <updated>2021-02-05T12:00:31.726Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="github-api使用总结"><a href="#github-api使用总结" class="headerlink" title="github-api使用总结"></a>github-api使用总结</h1><ul><li><p>github search api</p><ol><li><p>找到过去一段时间内最热的几个项目</p><pre><code class="lang-curl">$ curl -G https://api.github.com/search/repositories       \    --data-urlencode &quot;q=created:2021-01-01&quot; \    --data-urlencode &quot;sort=stars&quot;                          \    --data-urlencode &quot;order=desc&quot;                          \    -H &quot;Accept: application/vnd.github.preview&quot;            \    | jq &quot;.items[0,1,2] | &#123;name, description, language, watchers_count, html_url&#125;&quot;</code></pre></li><li><p>找到最早的用户账号并且没有人follow的github账号（人类清除计划hhh）</p><pre><code>$ curl -G https://api.github.com/search/users   \    --data-urlencode &#39;q=followers:0&#39;            \    --data-urlencode &#39;sort=joined&#39;              \    --data-urlencode &#39;order=asc&#39;                \    -H &#39;Accept: application/vnd.github.preview&#39; \    | jq &#39;.items[0,1,2] | &#123;html_url, login, id&#125;&#39;</code></pre></li></ol></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;github-api使用总结&quot;&gt;&lt;a href=&quot;#github-api使用总结&quot; class=&quot;headerlink&quot; title=&quot;github-api使用总结&quot;&gt;&lt;/a&gt;github-api使用总结&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;github search</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>markdown使用总结</title>
@@ -316,9 +357,9 @@
     <link href="http://example.com/2021/01/09/ubuntu%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
     <id>http://example.com/2021/01/09/ubuntu%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
     <published>2021-01-09T08:21:12.000Z</published>
-    <updated>2021-01-10T02:44:46.361Z</updated>
+    <updated>2021-02-05T11:55:09.364Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="ubuntu-使用总结"><a href="#ubuntu-使用总结" class="headerlink" title="ubuntu 使用总结"></a>ubuntu 使用总结</h1><ul><li><p>ubuntu查看环境变量有三个命令</p><p>1、<code>env</code></p><p>env命令是environment的缩zhi写，用dao于列出所zhuan有的环境变量</p><p>2、<code>export</code></p><p>单独使用<code>export</code>命令也可以像<code>env</code>列出所有的环境变量，不过<code>export</code>命令还有其他额外的功能</p><p>3、<code>echo $PATH</code></p><p><code>echo $PATH</code>用于列出变量PATH的值，里面包含了已添加的目录</p></li><li><p>ubuntu修改环境变量：</p><p>1、使用<code>set</code>命令</p><p><code>set</code>查看所有本地定义的环境变量，<code>unset</code>可以删除指定的环境变量。</p><p>2、使用<code>export</code>命令</p><p><code>export &lt;变量名称&gt;=$&lt;变量名称&gt;:&lt;变量值&gt; //等号两边一定不能有空格</code></p><p>3、修改.<code>bashrc</code>文件</p><pre><code>vi ~/.bashrc   //编辑.bashrc文件 //在最后一行添上: export &lt;变量名称&gt;=$&lt;变量名称&gt;:&lt;变量值&gt;   //等号两边没空格//保存退出source ~/.bashrc</code></pre><p><strong>注意，</strong>常用的环境变量：</p><ul><li><p>PATH 决定了shell将到哪些目录中寻找命令或程序</p></li><li><p>HOME 当前用户主目录</p></li><li><p>HISTSIZE　历史记录数</p></li><li><p>LOGNAME 当前用户的登录名</p></li><li><p>HOSTNAME　指主机的名称</p></li><li><p>SHELL 　　当前用户Shell类型</p></li><li><p>LANGUGE 　语言相关的环境变量，多语言可以修改此环境变量</p></li><li><p>MAIL　　　当前用户的邮件存放目录</p></li><li><p>PS1　　　基本提示符，对于root用户是#，对于普通用户是$</p></li></ul></li><li><p>ubuntu中<code>&gt;</code>和<code>&gt;&gt;</code>和<code>&lt;</code>的区别</p><p>1、输入输出的区bai别：</p><p><code>&gt;&gt;</code>和<code>&gt;</code>都属于输出重定向，<code>&lt;</code>属于输入重定向。</p><p>2、文件内容的区别：</p><p><code>&gt;</code>会覆盖目标的原有内容。当文件存在时会先删除原文件，再重新创建文件，然后把内容写入该文件；否则直接创建文件。</p><p><code>&gt;&gt;</code>会在目标原有内容后追加内容。当文件存在时直接在文件末尾进行内容追加，不会删除原文件；否则直接创建文件。</p></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="ubuntu-使用总结"><a href="#ubuntu-使用总结" class="headerlink" title="ubuntu 使用总结"></a>ubuntu 使用总结</h1><ul><li><p>ubuntu查看环境变量有三个命令</p><p>1、<code>env</code></p><p>env命令是environment的缩zhi写，用dao于列出所zhuan有的环境变量</p><p>2、<code>export</code></p><p>单独使用<code>export</code>命令也可以像<code>env</code>列出所有的环境变量，不过<code>export</code>命令还有其他额外的功能</p><p>3、<code>echo $PATH</code></p><p><code>echo $PATH</code>用于列出变量PATH的值，里面包含了已添加的目录</p></li><li><p>ubuntu修改环境变量：</p><p>1、使用<code>set</code>命令</p><p><code>set</code>查看所有本地定义的环境变量，<code>unset</code>可以删除指定的环境变量。</p><p>2、使用<code>export</code>命令</p><p><code>export &lt;变量名称&gt;=$&lt;变量名称&gt;:&lt;变量值&gt; //等号两边一定不能有空格</code></p><p>3、修改.<code>bashrc</code>文件</p><pre><code>vi ~/.bashrc   //编辑.bashrc文件 //在最后一行添上: export &lt;变量名称&gt;=$&lt;变量名称&gt;:&lt;变量值&gt;   //等号两边没空格//保存退出source ~/.bashrc</code></pre><p><strong>注意，</strong>常用的环境变量：</p><ul><li><p>PATH 决定了shell将到哪些目录中寻找命令或程序</p></li><li><p>HOME 当前用户主目录</p></li><li><p>HISTSIZE　历史记录数</p></li><li><p>LOGNAME 当前用户的登录名</p></li><li><p>HOSTNAME　指主机的名称</p></li><li><p>SHELL 　　当前用户Shell类型</p></li><li><p>LANGUGE 　语言相关的环境变量，多语言可以修改此环境变量</p></li><li><p>MAIL　　　当前用户的邮件存放目录</p></li><li><p>PS1　　　基本提示符，对于root用户是#，对于普通用户是$</p></li></ul></li><li><p>ubuntu中<code>&gt;</code>和<code>&gt;&gt;</code>和<code>&lt;</code>的区别</p><p>1、输入输出的区bai别：</p><p><code>&gt;&gt;</code>和<code>&gt;</code>都属于输出重定向，<code>&lt;</code>属于输入重定向。</p><p>2、文件内容的区别：</p><p><code>&gt;</code>会覆盖目标的原有内容。当文件存在时会先删除原文件，再重新创建文件，然后把内容写入该文件；否则直接创建文件。</p><p><code>&gt;&gt;</code>会在目标原有内容后追加内容。当文件存在时直接在文件末尾进行内容追加，不会删除原文件；否则直接创建文件。</p></li><li><p>date命令<br>用法：date [选项]… [+格式] 或：date [-u|—utc|—universal] [MMDDhhmm[[CC]YY][.ss]]<br>以给定的格式显示当前时间，或是设置系统日期。</p><p> -d，—date=字符串        显示指定字符串所描述的时间，而非当前时间<br> -f，—file=日期文件       类似—date，从日期文件中按行读入时间描述<br> -r,，—reference=文件      显示文件指定文件的最后修改时间<br> -R，—rfc-2822         以RFC 2822格式输出日期和时间</p><pre><code>            例如：2006年8月7日，星期一 12:34:56 -0600    --rfc-3339=TIMESPEC    以RFC 3339 格式输出日期和时间。            TIMESPEC=&#39;date&#39;，&#39;seconds&#39;，或 &#39;ns&#39;             表示日期和时间的显示精度。            日期和时间单元由单个的空格分开：            2006-08-07 12:34:56-06:00</code></pre><p> -s，—set=字符串        设置指定字符串来分开时间<br> -u，—utc, —universal     输出或者设置协调的通用时间</p><pre><code>     --help       显示此帮助信息并退出     --version     显示版本信息并退出</code></pre><p>给定的格式FORMAT 控制着输出，解释序列如下：</p><p> %%   一个文字的 %<br> %a   当前locale 的星期名缩写(例如： 日，代表星期日)<br> %A   当前locale 的星期名全称 (如：星期日)<br> %b   当前locale 的月名缩写 (如：一，代表一月)<br> %B   当前locale 的月名全称 (如：一月)<br> %c   当前locale 的日期和时间 (如：2005年3月3日 星期四 23:05:25)<br> %C   世纪；比如 %Y，通常为省略当前年份的后两位数字(例如：20)<br> %d   按月计的日期(例如：01)<br> %D   按月计的日期；等于%m/%d/%y<br> %e   按月计的日期，添加空格，等于%_d<br> %F   完整日期格式，等价于 %Y-%m-%d<br> %g   ISO-8601 格式年份的最后两位 (参见%G)<br> %G   ISO-8601 格式年份 (参见%V)，一般只和 %V 结合使用<br> %h   等于%b<br> %H   小时(00-23)<br> %I   小时(00-12)<br> %c   按年计的日期(001-366)<br> %k   时(0-23)<br> %l   时(1-12)<br> %m   月份(01-12)<br> %M   分(00-59)<br> %n   换行<br> %N   纳秒(000000000-999999999)<br> %p   当前locale 下的”上午”或者”下午”，未知时输出为空<br> %P   与%p 类似，但是输出小写字母<br> %r   当前locale 下的 12 小时时钟时间 (如：11:11:04 下午)<br> %R   24 小时时间的时和分，等价于 %H:%M<br> %s   自UTC 时间 1970-01-01 00:00:00 以来所经过的秒数<br> %S   秒(00-60)<br> %t   输出制表符 Tab<br> %T   时间，等于%H:%M:%S<br> %u   星期，1 代表星期一<br> %U   一年中的第几周，以周日为每星期第一天(00-53)<br> %V   ISO-8601 格式规范下的一年中第几周，以周一为每星期第一天(01-53)<br> %w   一星期中的第几日(0-6)，0 代表周一<br> %W   一年中的第几周，以周一为每星期第一天(00-53)<br> %x   当前locale 下的日期描述 (如：12/31/99)<br> %X   当前locale 下的时间描述 (如：23:13:48)<br> %y   年份最后两位数位 (00-99)<br> %Y   年份<br> %z +hhmm        数字时区(例如，-0400)<br> %:z +hh:mm       数字时区(例如，-04:00)<br> %::z +hh:mm:ss     数字时区(例如，-04:00:00)<br> %:::z         数字时区带有必要的精度 (例如，-04，+05:30)<br> %Z           按字母表排序的时区缩写 (例如，EDT)</p><p>默认情况下，日期的数字区域以0 填充。<br>以下可选标记可以跟在”%”后:</p><p> - (连字符)不填充该域<br> _ (下划线)以空格填充<br> 0 (数字0)以0 填充<br> ^ 如果可能，使用大写字母<br> # 如果可能，使用相反的大小写</p><p>在任何标记之后还允许一个可选的域宽度指定，它是一个十进制数字。<br>作为一个可选的修饰声明，它可以是E，在可能的情况下使用本地环境关联的<br>表示方式；或者是O，在可能的情况下使用本地环境关联的数字符号。</p></li><li></li></ul>]]></content>
     
     
       

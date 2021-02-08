@@ -14,7 +14,7 @@
 <meta property="og:description" content="ubuntu 使用总结 ubuntu查看环境变量有三个命令 1、env env命令是environment的缩zhi写，用dao于列出所zhuan有的环境变量 2、export 单独使用export命令也可以像env列出所有的环境变量，不过export命令还有其他额外的功能 3、echo $PATH echo $PATH用于列出变量PATH的值，里面包含了已添加的目录  ubuntu修改环境变量：">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-09T08:21:12.000Z">
-<meta property="article:modified_time" content="2021-01-10T02:44:46.361Z">
+<meta property="article:modified_time" content="2021-02-05T11:55:09.364Z">
 <meta property="article:author" content="CAKGOD">
 <meta name="twitter:card" content="summary">
     
@@ -193,6 +193,24 @@ source ~/.bashrc
 <p><code>&gt;</code>会覆盖目标的原有内容。当文件存在时会先删除原文件，再重新创建文件，然后把内容写入该文件；否则直接创建文件。</p>
 <p><code>&gt;&gt;</code>会在目标原有内容后追加内容。当文件存在时直接在文件末尾进行内容追加，不会删除原文件；否则直接创建文件。</p>
 </li>
+<li><p>date命令<br>用法：date [选项]… [+格式] 或：date [-u|—utc|—universal] [MMDDhhmm[[CC]YY][.ss]]<br>以给定的格式显示当前时间，或是设置系统日期。</p>
+<p> -d，—date=字符串        显示指定字符串所描述的时间，而非当前时间<br> -f，—file=日期文件       类似—date，从日期文件中按行读入时间描述<br> -r,，—reference=文件      显示文件指定文件的最后修改时间<br> -R，—rfc-2822         以RFC 2822格式输出日期和时间</p>
+<pre><code>            例如：2006年8月7日，星期一 12:34:56 -0600
+    --rfc-3339=TIMESPEC    以RFC 3339 格式输出日期和时间。
+            TIMESPEC=&#39;date&#39;，&#39;seconds&#39;，或 &#39;ns&#39; 
+            表示日期和时间的显示精度。
+            日期和时间单元由单个的空格分开：
+            2006-08-07 12:34:56-06:00
+</code></pre><p> -s，—set=字符串        设置指定字符串来分开时间<br> -u，—utc, —universal     输出或者设置协调的通用时间</p>
+<pre><code>     --help       显示此帮助信息并退出
+     --version     显示版本信息并退出
+</code></pre><p>给定的格式FORMAT 控制着输出，解释序列如下：</p>
+<p> %%   一个文字的 %<br> %a   当前locale 的星期名缩写(例如： 日，代表星期日)<br> %A   当前locale 的星期名全称 (如：星期日)<br> %b   当前locale 的月名缩写 (如：一，代表一月)<br> %B   当前locale 的月名全称 (如：一月)<br> %c   当前locale 的日期和时间 (如：2005年3月3日 星期四 23:05:25)<br> %C   世纪；比如 %Y，通常为省略当前年份的后两位数字(例如：20)<br> %d   按月计的日期(例如：01)<br> %D   按月计的日期；等于%m/%d/%y<br> %e   按月计的日期，添加空格，等于%_d<br> %F   完整日期格式，等价于 %Y-%m-%d<br> %g   ISO-8601 格式年份的最后两位 (参见%G)<br> %G   ISO-8601 格式年份 (参见%V)，一般只和 %V 结合使用<br> %h   等于%b<br> %H   小时(00-23)<br> %I   小时(00-12)<br> %c   按年计的日期(001-366)<br> %k   时(0-23)<br> %l   时(1-12)<br> %m   月份(01-12)<br> %M   分(00-59)<br> %n   换行<br> %N   纳秒(000000000-999999999)<br> %p   当前locale 下的”上午”或者”下午”，未知时输出为空<br> %P   与%p 类似，但是输出小写字母<br> %r   当前locale 下的 12 小时时钟时间 (如：11:11:04 下午)<br> %R   24 小时时间的时和分，等价于 %H:%M<br> %s   自UTC 时间 1970-01-01 00:00:00 以来所经过的秒数<br> %S   秒(00-60)<br> %t   输出制表符 Tab<br> %T   时间，等于%H:%M:%S<br> %u   星期，1 代表星期一<br> %U   一年中的第几周，以周日为每星期第一天(00-53)<br> %V   ISO-8601 格式规范下的一年中第几周，以周一为每星期第一天(01-53)<br> %w   一星期中的第几日(0-6)，0 代表周一<br> %W   一年中的第几周，以周一为每星期第一天(00-53)<br> %x   当前locale 下的日期描述 (如：12/31/99)<br> %X   当前locale 下的时间描述 (如：23:13:48)<br> %y   年份最后两位数位 (00-99)<br> %Y   年份<br> %z +hhmm        数字时区(例如，-0400)<br> %:z +hh:mm       数字时区(例如，-04:00)<br> %::z +hh:mm:ss     数字时区(例如，-04:00:00)<br> %:::z         数字时区带有必要的精度 (例如，-04，+05:30)<br> %Z           按字母表排序的时区缩写 (例如，EDT)</p>
+<p>默认情况下，日期的数字区域以0 填充。<br>以下可选标记可以跟在”%”后:</p>
+<p> - (连字符)不填充该域<br> _ (下划线)以空格填充<br> 0 (数字0)以0 填充<br> ^ 如果可能，使用大写字母<br> # 如果可能，使用相反的大小写</p>
+<p>在任何标记之后还允许一个可选的域宽度指定，它是一个十进制数字。<br>作为一个可选的修饰声明，它可以是E，在可能的情况下使用本地环境关联的<br>表示方式；或者是O，在可能的情况下使用本地环境关联的数字符号。</p>
+</li>
+<li></li>
 </ul>
 
   </div>
