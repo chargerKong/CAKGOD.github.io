@@ -166,14 +166,14 @@
     <link href="http://example.com/2021/01/28/Boss%E7%9B%B4%E8%81%98%E6%8A%98%E8%85%BE/"/>
     <id>http://example.com/2021/01/28/Boss%E7%9B%B4%E8%81%98%E6%8A%98%E8%85%BE/</id>
     <published>2021-01-28T08:59:31.000Z</published>
-    <updated>2021-01-28T09:08:51.382Z</updated>
+    <updated>2021-02-10T03:48:00.205Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Boss直聘折腾记录"><a href="#Boss直聘折腾记录" class="headerlink" title="Boss直聘折腾记录"></a>Boss直聘折腾记录</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="Boss直聘折腾记录"><a href="#Boss直聘折腾记录" class="headerlink" title="Boss直聘折腾记录"></a>Boss直聘折腾记录</h1><p>非出于本心，需要获得用户的简历（内心一百万个不愿意）。。。本人绝不使用这些数据用于任何研究，手中也绝不留存任何信息，仅当技术学习，如有侵权，务必直接联系本人。</p><ul><li>第一步登录boss直聘企业账号，发布职位，即可获取推荐牛人。</li><li>首先直接考虑访问url，不过boss直聘的反扒策略肯定不允许如此简单的方法，页面内容都是由Cookie生成的，所以此方法行不通。</li><li>其次考虑selenium控制浏览器，不过这种方法每次都需要打开新页面，就得重复扫码登录，无法完成自动化运行，舍弃该方法。</li><li>最后经过M老师指点，采用TamperMonkey的方法，在其中编写JavaScript脚本，截取相关代码，并模拟点击行为，最后在chrome的console中成功获取所需内容。为了将console中的内容保存到本地，采用了命令行<code>google-chrome --enable-logging --v=1</code>保存chrome console log文件，这样就可以下一步的数据提取了，使用Xml、BeautifulSoup等方法。为了保护相关人员权益，避免风险，不公开JavaScript脚本，恳请见谅。</li></ul><p>在整个过程中，还是学习到JavaScript、TamperMonkey的知识，感谢M老师和震哥的指点。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;Boss直聘折腾记录&quot;&gt;&lt;a href=&quot;#Boss直聘折腾记录&quot; class=&quot;headerlink&quot; title=&quot;Boss直聘折腾记录&quot;&gt;&lt;/a&gt;Boss直聘折腾记录&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;Boss直聘折腾记录&quot;&gt;&lt;a href=&quot;#Boss直聘折腾记录&quot; class=&quot;headerlink&quot; title=&quot;Boss直聘折腾记录&quot;&gt;&lt;/a&gt;Boss直聘折腾记录&lt;/h1&gt;&lt;p&gt;非出于本心，需要获得用户的简历（内心一百万个不愿意）。。。本人绝不使用这些数</summary>
       
     
     
