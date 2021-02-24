@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="之前对Github用户主页进行了信息提取，这次对Github项目信息进行提取。由于项目的特殊性，不仅存在基本信息，也存在贡献者、commit等信息。这些信息如果通过url访问将是非常巨大的工作量，因此可以采用将仓库克隆到本地使用git解析的方法来进行这类信息的提取。综上，对于一个项目的信息提取包括以下步骤。  访问仓库网页地址，例如https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rust">
+<meta property="og:type" content="article">
+<meta property="og:title" content="github项目信息提取">
+<meta property="og:url" content="http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/index.html">
+<meta property="og:site_name" content="CAKGOD">
+<meta property="og:description" content="之前对Github用户主页进行了信息提取，这次对Github项目信息进行提取。由于项目的特殊性，不仅存在基本信息，也存在贡献者、commit等信息。这些信息如果通过url访问将是非常巨大的工作量，因此可以采用将仓库克隆到本地使用git解析的方法来进行这类信息的提取。综上，对于一个项目的信息提取包括以下步骤。  访问仓库网页地址，例如https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rust">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-24T08:18:13.000Z">
+<meta property="article:modified_time" content="2021-02-24T08:47:05.326Z">
+<meta property="article:author" content="CAKGOD">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>github项目信息提取</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="CAKGOD" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2021/02/23/github%E7%94%A8%E6%88%B7%E4%B8%BB%E9%A1%B5%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&text=github项目信息提取"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&title=github项目信息提取"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&is_video=false&description=github项目信息提取"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=github项目信息提取&body=Check out this article: http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&title=github项目信息提取"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&title=github项目信息提取"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&title=github项目信息提取"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&title=github项目信息提取"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&name=github项目信息提取&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&t=github项目信息提取"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        github项目信息提取
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">CAKGOD</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-02-24T08:18:13.000Z" itemprop="datePublished">2021-02-24</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>之前对Github用户主页进行了信息提取，这次对Github项目信息进行提取。由于项目的特殊性，不仅存在基本信息，也存在贡献者、commit等信息。这些信息如果通过url访问将是非常巨大的工作量，因此可以采用将仓库克隆到本地使用git解析的方法来进行这类信息的提取。综上，对于一个项目的信息提取包括以下步骤。</p>
+<ul>
+<li>访问仓库网页地址，例如<a target="_blank" rel="noopener" href="https://github.com/rust-lang/rust，并使用BeautifulSoup对返回的网页进行解析。">https://github.com/rust-lang/rust，并使用BeautifulSoup对返回的网页进行解析。</a></li>
+<li>将仓库使用<code>git clone</code>命令保存到本地，然后使用<code>git --no-pager log --stat &gt;&gt; commit_file.txt</code>命令保存commit记录，然后从这个文件中提取贡献者和具体的贡献记录。</li>
+</ul>
+<p>解析网页的内容相对比较简单，使用BeautifulSoup提取标签内容、标签属性等即可，跟之前提取用户主页信息类似。</p>
+<p>解析commit信息相对复杂一些，需要使用关键词筛选和正则匹配等方法，将包含commit信息的行提取出来，并根据不同的贡献者、不同的文件路径（注意不仅仅是文件名，要更高级一点）分别统计总体的代码贡献行数。这里有个有趣的发现，commit信息中包含了非常重要的开发者联系方式，即邮箱，这个可是在外面难以搜索到的。emmmmmm。。。</p>
+<p>最终将所有的信息存储到project字典中，一级字段包括summary、contributors、file_commits。该dict可以另存为json文件，方便进行其他操作。具体的代码见<a target="_blank" rel="noopener" href="https://github.com/CAKGOD/myCode/blob/master/examples/github/github_project_homepage_extraction.ipynb。">https://github.com/CAKGOD/myCode/blob/master/examples/github/github_project_homepage_extraction.ipynb。</a></p>
+<p>本次Github项目信息提取的效果还是不错的，不过还是有一些可以改进的地方。例如可以添加根据时间进行统计的功能，毕竟有时候我们只是想统计最近一段时间的贡献历史。这个项目信息统计出来之后，可以用来找出关键贡献者（例如使用半衰期排名算法，明后天更新一下）、关键代码文件等。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&text=github项目信息提取"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&title=github项目信息提取"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&is_video=false&description=github项目信息提取"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=github项目信息提取&body=Check out this article: http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&title=github项目信息提取"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&title=github项目信息提取"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&title=github项目信息提取"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&title=github项目信息提取"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&name=github项目信息提取&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/02/24/github%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/&t=github项目信息提取"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2021-2025
+    CAKGOD
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
