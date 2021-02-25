@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-02-24T08:47:05.326Z</updated>
+  <updated>2021-02-25T02:39:37.851Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>霍夫曼树</title>
+    <link href="http://example.com/2021/02/25/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E6%A0%91/"/>
+    <id>http://example.com/2021/02/25/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E6%A0%91/</id>
+    <published>2021-02-25T02:16:55.000Z</published>
+    <updated>2021-02-25T02:39:37.851Z</updated>
+    
+    <content type="html"><![CDATA[<p>转载自<a href="https://www.jianshu.com/p/5ad3e97d54a3">https://www.jianshu.com/p/5ad3e97d54a3</a></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>霍夫曼树是二叉树的一种特殊形式，又称为最优二叉树，其主要作用在于数据压缩和编码长度的优化。</p><h2 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h2><h3 id="路径和路径长度"><a href="#路径和路径长度" class="headerlink" title="路径和路径长度"></a>路径和路径长度</h3><p>在一棵树中，从一个结点往下可以达到的孩子或孙子结点之间的通路，称为<strong>路径</strong>。通路中分支的数目称为<strong>路径长度</strong>。若规定根结点的层数为1，则从根结点到第L层结点的路径长度为L-1。</p><p><img src="https://upload-images.jianshu.io/upload_images/7043118-f75c7a1e99fdf648.png?imageMogr2/auto-orient/strip|imageView2/2/w/340/format/webp" alt=""></p><p>上图所示二叉树结点A到结点D的路径长度为2，结点A到达结点C的路径长度为1。</p><h3 id="结点的权及带权路径长度"><a href="#结点的权及带权路径长度" class="headerlink" title="结点的权及带权路径长度"></a>结点的权及带权路径长度</h3><p>若将树中结点赋给一个有着某种含义的数值，则这个数值称为该结点的权。结点的带权路径长度为：从根结点到该结点之间的路径长度与该结点的权的乘积。下图稀罕事了一棵带权的二叉树。</p><p><img src="https://upload-images.jianshu.io/upload_images/7043118-6091540162f48e8c.png?imageMogr2/auto-orient/strip|imageView2/2/w/357/format/webp" alt=""></p><h3 id="树的带权路径长度"><a href="#树的带权路径长度" class="headerlink" title="树的带权路径长度"></a>树的带权路径长度</h3><p>树的带权路径长度规定为所有叶子结点的带权路径长度之和，记为<code>WPL</code>。<br>上图所示二叉树的<code>WPL</code>：<br><code>WPL = 6 * 2 + 3 * 2 + 8 * 2 = 34</code>；</p><h2 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>给定n个权值作为n个叶子结点，构造一棵二叉树，若带权路径长度达到最小，称这样的二叉树为最优二叉树，也称为霍夫曼树(Huffman Tree)。如下图所示两棵二叉树。</p><p><img src="https://upload-images.jianshu.io/upload_images/7043118-60c5f01992b15153.png?imageMogr2/auto-orient/strip|imageView2/2/w/542/format/webp" alt=""></p><p>叶子结点为A、B、C、D，对应权值分别为7、5、2、4。3.1.a树的<code>WPL = 7 * 2 + 5 * 2 + 2 * 2 + 4 * 2 = 36</code>，<code>3.1.b树的WPL = 7 * 1 + 5 * 2 + 2 * 3 + 4 * 3 = 35</code>。由ABCD构成叶子结点的二叉树形态有许多种，但是<code>WPL</code>最小的树只有3.1.b所示的形态。则3.1.b树为一棵霍夫曼树。</p><h3 id="构造霍夫曼树"><a href="#构造霍夫曼树" class="headerlink" title="构造霍夫曼树"></a>构造霍夫曼树</h3><p>构造霍夫曼树主要运用于编码，称为霍夫曼编码。现考虑使用3.1中ABCD结点以及对应的权值构成如下长度编码。<code>AACBCAADDBBADDAABB</code>。编码规则为：从根节点出发，向左标记为0，向右标记为1。采用上述编码规则，将上图编码为下图所示：</p><p><img src="https://upload-images.jianshu.io/upload_images/7043118-1c37046c5ee37372.png?imageMogr2/auto-orient/strip|imageView2/2/w/545/format/webp" alt=""></p><p>构造过程：3.1.a所示二叉树称为等长编码，由于共有4个结点，故需要2位编码来表示，编码结果为：</p><div class="table-container"><table><thead><tr><th>结点</th><th>编码</th></tr></thead><tbody><tr><td>A</td><td>00</td></tr><tr><td>B</td><td>01</td></tr><tr><td>C</td><td>10</td></tr><tr><td>D</td><td>11</td></tr></tbody></table></div><p>则<code>AACBCAADDBBADDAABB</code>对应编码为：<code>00 00 10 01 10 00 00 11 11 01 01 00 11 11 00 00 01 01</code>，长度为36。</p><p>3.1.b构造过程如下：<br>1）选择结点权值最小的两个结点构成一棵二叉树如图3.3：</p><p><img src="https://upload-images.jianshu.io/upload_images/7043118-4ba1c6c17cd49fc1.png?imageMogr2/auto-orient/strip|imageView2/2/w/223/format/webp" alt=""></p><p>2）则现在可以看作由T1，A，B构造霍夫曼树，继续执行步骤1。<br>选则B和T1构成一棵二叉树如图3.4：</p><p><img src="https://upload-images.jianshu.io/upload_images/7043118-3a2ec3c6a7495042.png?imageMogr2/auto-orient/strip|imageView2/2/w/254/format/webp" alt=""></p><p>3）现只有T2和A两个结点，继续执行步骤1。<br>选择A和T2构成一棵二叉树如图3.5：</p><p><img src="https://upload-images.jianshu.io/upload_images/7043118-fb3a3e0c62c27d84.png?imageMogr2/auto-orient/strip|imageView2/2/w/379/format/webp" alt=""></p><p>经过上述步骤则可以构造完一棵霍夫曼树。通过观察可以发现，霍夫曼树中权值越大的结点距离根结点越近。<br>按照图3.5霍夫曼树编码结果：</p><div class="table-container"><table><thead><tr><th>结点</th><th>编码</th></tr></thead><tbody><tr><td>A</td><td>0</td></tr><tr><td>B</td><td>10</td></tr><tr><td>C</td><td>110</td></tr><tr><td>D</td><td>111</td></tr></tbody></table></div><p>则<code>AACBCAADDBBADDAABB</code>对应编码为：<code>0 0 110 10 110 0 0 111 111 10 10 0 111 111 0 0 10 10</code>，编码长度为35。由此可见，采用二叉树可以适当降低编码长度，尤其是在编码长度较长，且权值分布不均匀时，采用霍夫曼编码可以大大缩短编码长度。</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p><strong>后续补充</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;转载自&lt;a href=&quot;https://www.jianshu.com/p/5ad3e97d54a3&quot;&gt;https://www.jianshu.com/p/5ad3e97d54a3&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;heade</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用meilisearch搭建rust搜索引擎</title>
+    <link href="http://example.com/2021/02/24/%E4%BD%BF%E7%94%A8meilisearch%E6%90%AD%E5%BB%BArust%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    <id>http://example.com/2021/02/24/%E4%BD%BF%E7%94%A8meilisearch%E6%90%AD%E5%BB%BArust%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</id>
+    <published>2021-02-24T12:27:37.000Z</published>
+    <updated>2021-02-24T13:02:27.228Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>meilissearch和Elasticsearch的主要区别是什么?为什么它们很重要?<br>自2010年创建以来，Elasticsearch迅速成为搜索引擎市场的热门选项，在各种应用程序和数据集中都有使用。然而，不可否认的是，对于繁重的全文搜索来说，它是一个强大的工具，但在使用之前需要进行广泛的配置，这意味着所有这些功能都伴随着高昂的资源成本。<br>对于处理大量日志的大型科技公司来说，Elasticsearch可能是有意义的。但对于中等规模的数据集(即少于500万行)和较小的应用程序，它就不适合这份工作。尽管如此，由于历史上没有开源的替代方案，开发人员仍然选择弹性作为他们的默认解决方案，最终在设置和培训上损失了不成比例的大量时间。<br>这就是“Meilisearch”的用武之地。MeiliSearch提供了一个快速、相关和容错的搜索，并且几乎不需要设置时间，对于任何需要一个强大且可访问的搜索引擎的开发人员来说，它都是一个很好的解决方案。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;meilissearch和Elasticsearch的主要区别是什么?为什么它们很重要?&lt;br&gt;自2010年创建以来，Elasticsear</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>zulip聊天记录爬取</title>
+    <link href="http://example.com/2021/02/24/zulip%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95%E7%88%AC%E5%8F%96/"/>
+    <id>http://example.com/2021/02/24/zulip%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95%E7%88%AC%E5%8F%96/</id>
+    <published>2021-02-24T10:43:23.000Z</published>
+    <updated>2021-02-24T11:17:56.170Z</updated>
+    
+    <content type="html"><![CDATA[<p>出于团队rust洞察任务需求，需要研发出zulip聊天记录抓取和提取工具。我的系统是ubuntu20，按照网上的教程搜索安装zulip，注意配置rc文件即可。</p><p>接下来需要导出zulip的聊天记录。以rust治理组的zulip聊天室为例，首先设定一个channel列表，代表不同的聊天频道。</p><p>接下来调用python的zulip包，首先调用<code>zulip.client(config_file)</code>，之后调用client.get_messages(request)来获得返回值。这里request中可以修改获取聊天记录的数量和起止时间。将这些聊天记录根据聊天室名称分别保存。</p><p>将聊天记录保存为文件之后，根据词匹配、切分等方法，将信息提取为“发送者姓名”，“发送者邮箱”，“时间”，“主题”，“内容”五个维度，并将其存入json文件中。</p><p>整体下来，获取过程还是比较简单的。由于zulip python库的存在，我们不需要另外去请求连接了。信息获取下来之后，可以使用关键词提取等方法，获取聊天记录热词等。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;出于团队rust洞察任务需求，需要研发出zulip聊天记录抓取和提取工具。我的系统是ubuntu20，按照网上的教程搜索安装zulip，注意配置rc文件即可。&lt;/p&gt;
+&lt;p&gt;接下来需要导出zulip的聊天记录。以rust治理组的zulip聊天室为例，首先设定一个channe</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>github项目信息提取</title>
@@ -363,72 +425,6 @@
       
     <summary type="html">&lt;h1 id=&quot;Type-Script使用总结&quot;&gt;&lt;a href=&quot;#Type-Script使用总结&quot; class=&quot;headerlink&quot; title=&quot;Type Script使用总结&quot;&gt;&lt;/a&gt;Type Script使用总结&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;安装&lt;code&gt;type</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>python使用总结</title>
-    <link href="http://example.com/2021/01/09/python%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
-    <id>http://example.com/2021/01/09/python%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
-    <published>2021-01-09T14:20:08.000Z</published>
-    <updated>2021-02-02T12:13:37.973Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="python使用总结"><a href="#python使用总结" class="headerlink" title="python使用总结"></a>python使用总结</h1><ul><li><p>python numpy real函数</p><p>用法：</p><pre><code class="lang-python">numpy.real(val)</code></pre><p>返回复杂参数的实部。</p><p>| 参数：   | <strong>val**</strong>：<strong> ： array_like输入数组。                        |<br>| ———— | —————————————————————————————— |<br>| 返回值： | </strong>out<strong>**：</strong> ： ndarray或标量复杂参数的实际组成部分。如果val是实数，则将val的类型用于输出。如果val具有复杂元素，则返回的类型为float。 |</p><p>例子：</p><pre><code class="lang-python">&gt;&gt;&gt; a = np.array([1+2j, 3+4j, 5+6j])&gt;&gt;&gt; a.realarray([1.,  3.,  5.])&gt;&gt;&gt; a.real = 9&gt;&gt;&gt; aarray([9.+2.j,  9.+4.j,  9.+6.j])&gt;&gt;&gt; a.real = np.array([9, 8, 7])&gt;&gt;&gt; aarray([9.+2.j,  8.+4.j,  7.+6.j])&gt;&gt;&gt; np.real(1 + 1j)1.0</code></pre><p>源码：</p><p><strong>numpy.real的API实现见：</strong><a href="https://vimsky.com/cache/index.php?source=https%3A//github.com/numpy/numpy/blob/v1.17.0/numpy/lib/type_check.py">[源代码]</a></p></li><li><p>python执行ubuntu terminal命令</p><pre><code>import os                                                        os.system(&#39;&lt;ubuntu 命令&gt;&#39;)</code></pre><p>在执行ubuntu terminal命令时，如果需要切换路径：</p><pre><code>os.chdir(&#39;&lt;路径名称&gt;&#39;)</code></pre></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;python使用总结&quot;&gt;&lt;a href=&quot;#python使用总结&quot; class=&quot;headerlink&quot; title=&quot;python使用总结&quot;&gt;&lt;/a&gt;python使用总结&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;python numpy real函数&lt;/p&gt;
-&lt;p&gt;用法</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu使用总结</title>
-    <link href="http://example.com/2021/01/09/ubuntu%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
-    <id>http://example.com/2021/01/09/ubuntu%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
-    <published>2021-01-09T08:21:12.000Z</published>
-    <updated>2021-02-05T11:55:09.364Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="ubuntu-使用总结"><a href="#ubuntu-使用总结" class="headerlink" title="ubuntu 使用总结"></a>ubuntu 使用总结</h1><ul><li><p>ubuntu查看环境变量有三个命令</p><p>1、<code>env</code></p><p>env命令是environment的缩zhi写，用dao于列出所zhuan有的环境变量</p><p>2、<code>export</code></p><p>单独使用<code>export</code>命令也可以像<code>env</code>列出所有的环境变量，不过<code>export</code>命令还有其他额外的功能</p><p>3、<code>echo $PATH</code></p><p><code>echo $PATH</code>用于列出变量PATH的值，里面包含了已添加的目录</p></li><li><p>ubuntu修改环境变量：</p><p>1、使用<code>set</code>命令</p><p><code>set</code>查看所有本地定义的环境变量，<code>unset</code>可以删除指定的环境变量。</p><p>2、使用<code>export</code>命令</p><p><code>export &lt;变量名称&gt;=$&lt;变量名称&gt;:&lt;变量值&gt; //等号两边一定不能有空格</code></p><p>3、修改.<code>bashrc</code>文件</p><pre><code>vi ~/.bashrc   //编辑.bashrc文件 //在最后一行添上: export &lt;变量名称&gt;=$&lt;变量名称&gt;:&lt;变量值&gt;   //等号两边没空格//保存退出source ~/.bashrc</code></pre><p><strong>注意，</strong>常用的环境变量：</p><ul><li><p>PATH 决定了shell将到哪些目录中寻找命令或程序</p></li><li><p>HOME 当前用户主目录</p></li><li><p>HISTSIZE　历史记录数</p></li><li><p>LOGNAME 当前用户的登录名</p></li><li><p>HOSTNAME　指主机的名称</p></li><li><p>SHELL 　　当前用户Shell类型</p></li><li><p>LANGUGE 　语言相关的环境变量，多语言可以修改此环境变量</p></li><li><p>MAIL　　　当前用户的邮件存放目录</p></li><li><p>PS1　　　基本提示符，对于root用户是#，对于普通用户是$</p></li></ul></li><li><p>ubuntu中<code>&gt;</code>和<code>&gt;&gt;</code>和<code>&lt;</code>的区别</p><p>1、输入输出的区bai别：</p><p><code>&gt;&gt;</code>和<code>&gt;</code>都属于输出重定向，<code>&lt;</code>属于输入重定向。</p><p>2、文件内容的区别：</p><p><code>&gt;</code>会覆盖目标的原有内容。当文件存在时会先删除原文件，再重新创建文件，然后把内容写入该文件；否则直接创建文件。</p><p><code>&gt;&gt;</code>会在目标原有内容后追加内容。当文件存在时直接在文件末尾进行内容追加，不会删除原文件；否则直接创建文件。</p></li><li><p>date命令<br>用法：date [选项]… [+格式] 或：date [-u|—utc|—universal] [MMDDhhmm[[CC]YY][.ss]]<br>以给定的格式显示当前时间，或是设置系统日期。</p><p> -d，—date=字符串        显示指定字符串所描述的时间，而非当前时间<br> -f，—file=日期文件       类似—date，从日期文件中按行读入时间描述<br> -r,，—reference=文件      显示文件指定文件的最后修改时间<br> -R，—rfc-2822         以RFC 2822格式输出日期和时间</p><pre><code>            例如：2006年8月7日，星期一 12:34:56 -0600    --rfc-3339=TIMESPEC    以RFC 3339 格式输出日期和时间。            TIMESPEC=&#39;date&#39;，&#39;seconds&#39;，或 &#39;ns&#39;             表示日期和时间的显示精度。            日期和时间单元由单个的空格分开：            2006-08-07 12:34:56-06:00</code></pre><p> -s，—set=字符串        设置指定字符串来分开时间<br> -u，—utc, —universal     输出或者设置协调的通用时间</p><pre><code>     --help       显示此帮助信息并退出     --version     显示版本信息并退出</code></pre><p>给定的格式FORMAT 控制着输出，解释序列如下：</p><p> %%   一个文字的 %<br> %a   当前locale 的星期名缩写(例如： 日，代表星期日)<br> %A   当前locale 的星期名全称 (如：星期日)<br> %b   当前locale 的月名缩写 (如：一，代表一月)<br> %B   当前locale 的月名全称 (如：一月)<br> %c   当前locale 的日期和时间 (如：2005年3月3日 星期四 23:05:25)<br> %C   世纪；比如 %Y，通常为省略当前年份的后两位数字(例如：20)<br> %d   按月计的日期(例如：01)<br> %D   按月计的日期；等于%m/%d/%y<br> %e   按月计的日期，添加空格，等于%_d<br> %F   完整日期格式，等价于 %Y-%m-%d<br> %g   ISO-8601 格式年份的最后两位 (参见%G)<br> %G   ISO-8601 格式年份 (参见%V)，一般只和 %V 结合使用<br> %h   等于%b<br> %H   小时(00-23)<br> %I   小时(00-12)<br> %c   按年计的日期(001-366)<br> %k   时(0-23)<br> %l   时(1-12)<br> %m   月份(01-12)<br> %M   分(00-59)<br> %n   换行<br> %N   纳秒(000000000-999999999)<br> %p   当前locale 下的”上午”或者”下午”，未知时输出为空<br> %P   与%p 类似，但是输出小写字母<br> %r   当前locale 下的 12 小时时钟时间 (如：11:11:04 下午)<br> %R   24 小时时间的时和分，等价于 %H:%M<br> %s   自UTC 时间 1970-01-01 00:00:00 以来所经过的秒数<br> %S   秒(00-60)<br> %t   输出制表符 Tab<br> %T   时间，等于%H:%M:%S<br> %u   星期，1 代表星期一<br> %U   一年中的第几周，以周日为每星期第一天(00-53)<br> %V   ISO-8601 格式规范下的一年中第几周，以周一为每星期第一天(01-53)<br> %w   一星期中的第几日(0-6)，0 代表周一<br> %W   一年中的第几周，以周一为每星期第一天(00-53)<br> %x   当前locale 下的日期描述 (如：12/31/99)<br> %X   当前locale 下的时间描述 (如：23:13:48)<br> %y   年份最后两位数位 (00-99)<br> %Y   年份<br> %z +hhmm        数字时区(例如，-0400)<br> %:z +hh:mm       数字时区(例如，-04:00)<br> %::z +hh:mm:ss     数字时区(例如，-04:00:00)<br> %:::z         数字时区带有必要的精度 (例如，-04，+05:30)<br> %Z           按字母表排序的时区缩写 (例如，EDT)</p><p>默认情况下，日期的数字区域以0 填充。<br>以下可选标记可以跟在”%”后:</p><p> - (连字符)不填充该域<br> _ (下划线)以空格填充<br> 0 (数字0)以0 填充<br> ^ 如果可能，使用大写字母<br> # 如果可能，使用相反的大小写</p><p>在任何标记之后还允许一个可选的域宽度指定，它是一个十进制数字。<br>作为一个可选的修饰声明，它可以是E，在可能的情况下使用本地环境关联的<br>表示方式；或者是O，在可能的情况下使用本地环境关联的数字符号。</p></li><li></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;ubuntu-使用总结&quot;&gt;&lt;a href=&quot;#ubuntu-使用总结&quot; class=&quot;headerlink&quot; title=&quot;ubuntu 使用总结&quot;&gt;&lt;/a&gt;ubuntu 使用总结&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;ubuntu查看环境变量有三个命令&lt;/p&gt;
-&lt;p&gt;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>git使用总结</title>
-    <link href="http://example.com/2021/01/09/git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
-    <id>http://example.com/2021/01/09/git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
-    <published>2021-01-09T08:18:40.000Z</published>
-    <updated>2021-02-04T03:00:19.957Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="git-使用总结"><a href="#git-使用总结" class="headerlink" title="git 使用总结"></a>git 使用总结</h1><ul><li><p><code>git log --stat</code>的使用</p><p>1、显示最近一次被修改文件的修改：统计信息，添加或删除了多少行。</p><p><code>git log -1 --stat</code></p><p>2、显示最近两条的修改</p><p><code>git log --stat -2</code></p><p>3、显示具体的修改</p><p><code>git log -p -2</code></p><p>4、显示用户为<code>czd</code>的修改</p><p><code>git log --stat --author=czd</code></p><p>5、查看单个文件<code>sensor-dev.c</code>最近三次修改的记录</p><p><code>git log --stat -3 drivers/input/sensors/sensor-dev.c</code></p><p>6、如果想不分页输出全部log日志</p><p><code>git --no-pager log</code></p></li><li><p>当使用<code>git --no-pager log --stat &gt;&gt; temp.txt</code>出现以下报错信息时：</p><pre><code>warning: inexact rename detection was skipped due to too many files.warning: you may want to set your diff.renameLimit variable to at least 6567 and retry the command.</code></pre><p>修改git的<code>diff.renameLimit</code>变量值</p><pre><code>git config diff.renameLimit 2000000</code></pre></li></ul><ul><li><p>github api使用总结</p><p>1、得到某个仓库的贡献者</p><pre><code>api.github.com/repos/&lt;项目所属组织或个人&gt;/&lt;项目名称&gt;/contributors</code></pre><p>返回的json中contributions即为commit次数。</p><p>2、得到某一用户在github上面贡献了多少库  </p><p><a href="https://github.com/benjycui">benjycui</a>编写了一个实现该功能的<a href="https://github.com/benjycui/open-source-hero">工具</a>。</p></li><li><p>修改<code>git commit</code>的默认编辑器</p><p>进入项目的根目录下，使用<code>vim ./.git/config and add the &quot;editor = vim&quot;</code>或<code>git config --global core.editor vim</code>将默认编辑器从GNA nano修改为vim。</p></li><li><p>新建一个仓库并和远程仓库连接</p><p>1、<code>mkdir new_repo</code></p><p>2、<code>cd new_repo</code></p><p>3、<code>git init</code></p><p>4、在github或gitee上新建一个同名仓库</p><p>5、<code>git remote add &lt;remote_repo_name&gt; &lt;remote_repo_address&gt;</code></p></li><li><p>分支</p><p>1、查看所有分支</p><p><code>git branch</code></p><p>2、选择某个特定的分支</p><p><code>git checkout &lt;branch name&gt;</code></p><p>3、新建一个分支并选定</p><p><code>git checkout -b &lt;branch name&gt;</code></p></li><li></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;git-使用总结&quot;&gt;&lt;a href=&quot;#git-使用总结&quot; class=&quot;headerlink&quot; title=&quot;git 使用总结&quot;&gt;&lt;/a&gt;git 使用总结&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;git log --stat&lt;/code&gt;的使用&lt;/p&gt;
-&lt;p</summary>
       
     
     
