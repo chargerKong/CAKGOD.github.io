@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Apriori算法是常用的用于挖掘出数据关联规则的算法，它用来找出数据值中频繁出现的数据集合，找出这些集合的模式有助于我们做一些决策。比如在常见的超市购物数据集，或者电商的网购数据集中，如果我们找到了频繁出现的数据集，那么对于超市，我们可以优化产品的位置摆放，对于电商，我们可以优化商品所在的仓库位置，达到节约成本，增加经济效益的目的。下面我们就对Apriori算法做一个总结。 频繁项集的评估标准什">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Aprior算法">
+<meta property="og:url" content="http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="CAKGOD">
+<meta property="og:description" content="Apriori算法是常用的用于挖掘出数据关联规则的算法，它用来找出数据值中频繁出现的数据集合，找出这些集合的模式有助于我们做一些决策。比如在常见的超市购物数据集，或者电商的网购数据集中，如果我们找到了频繁出现的数据集，那么对于超市，我们可以优化产品的位置摆放，对于电商，我们可以优化商品所在的仓库位置，达到节约成本，增加经济效益的目的。下面我们就对Apriori算法做一个总结。 频繁项集的评估标准什">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/1042406/201701/1042406-20170117161036255-1753157633.png">
+<meta property="article:published_time" content="2021-02-26T08:22:17.000Z">
+<meta property="article:modified_time" content="2021-02-26T08:29:25.528Z">
+<meta property="article:author" content="CAKGOD">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/1042406/201701/1042406-20170117161036255-1753157633.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Aprior算法</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="CAKGOD" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/02/26/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&text=Aprior算法"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&title=Aprior算法"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&is_video=false&description=Aprior算法"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Aprior算法&body=Check out this article: http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&title=Aprior算法"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&title=Aprior算法"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&title=Aprior算法"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&title=Aprior算法"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&name=Aprior算法&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&t=Aprior算法"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%91%E7%B9%81%E9%A1%B9%E9%9B%86%E7%9A%84%E8%AF%84%E4%BC%B0%E6%A0%87%E5%87%86"><span class="toc-number">1.</span> <span class="toc-text">频繁项集的评估标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apriori%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3"><span class="toc-number">2.</span> <span class="toc-text">Apriori算法思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Aprior%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">Aprior算法流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Aprior算法
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">CAKGOD</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-02-26T08:22:17.000Z" itemprop="datePublished">2021-02-26</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Apriori算法是常用的用于挖掘出数据关联规则的算法，它用来找出数据值中频繁出现的数据集合，找出这些集合的模式有助于我们做一些决策。比如在常见的超市购物数据集，或者电商的网购数据集中，如果我们找到了频繁出现的数据集，那么对于超市，我们可以优化产品的位置摆放，对于电商，我们可以优化商品所在的仓库位置，达到节约成本，增加经济效益的目的。下面我们就对Apriori算法做一个总结。</p>
+<h2 id="频繁项集的评估标准"><a href="#频繁项集的评估标准" class="headerlink" title="频繁项集的评估标准"></a>频繁项集的评估标准</h2><p>什么样的数据才是频繁项集呢？也许你会说，这还不简单，肉眼一扫，一起出现次数多的数据集就是频繁项集吗！的确，这也没有说错，但是有两个问题，第一是当数据量非常大的时候，我们没法直接肉眼发现频繁项集，这催生了关联规则挖掘的算法，比如Apriori, PrefixSpan, CBA。第二是我们缺乏一个频繁项集的标准。比如10条记录，里面A和B同时出现了三次，那么我们能不能说A和B一起构成频繁项集呢？因此我们需要一个评估频繁项集的标准。</p>
+<p>常用的频繁项集的评估标准有支持度,置信度和提升度三个。</p>
+<p>支持度就是几个关联的数据在数据集中出现的次数占总数据集的比重。或者说几个数据关联出现的概率。如果我们有两个想分析关联性的数据X和Y，则对应的支持度为:</p>
+<script type="math/tex; mode=display">
+Support(X,Y) = P(XY) = \frac{number(XY)}{num(All Samples)}</script><p>以此类推，如果我们有三个想分析关联性的数据X，Y和Z，则对应的支持度为:</p>
+<script type="math/tex; mode=display">
+Support(X,Y,Z) = P(XYZ) = \frac{number(XYZ)}{num(All Samples)}</script><p>一般来说，支持度高的数据不一定构成频繁项集，但是支持度太低的数据肯定不构成频繁项集。</p>
+<p>置信度体现了一个数据出现后，另一个数据出现的概率，或者说数据的条件概率。如果我们有两个想分析关联性的数据X和Y，X对Y的置信度为</p>
+<script type="math/tex; mode=display">
+Confidence(X \Leftarrow Y) = P(X|Y)=P(XY)/P(Y)</script><p>也可以以此类推到多个数据的关联置信度，比如对于三个数据X，Y，Z,则X对于Y和Z的置信度为：</p>
+<script type="math/tex; mode=display">
+Confidence(X \Leftarrow YZ) = P(X|YZ)=P(XYZ)/P(YZ)</script><p>举个例子，在购物数据中，纸巾对应鸡爪的置信度为40%，支持度为1%。则意味着在购物数据中，总共有1%的用户既买鸡爪又买纸巾;同时买鸡爪的用户中有40%的用户购买纸巾。</p>
+<p>提升度表示含有Y的条件下，同时含有X的概率，与X总体发生的概率之比，即:</p>
+<script type="math/tex; mode=display">
+Lift(X \Leftarrow Y) = P(X|Y)/P(X) = Confidence(X \Leftarrow Y) / P(X)</script><p>提升度体先了X和Y之间的关联关系, 提升度大于1则$X⇐Y$是有效的强关联规则， 提升度小于等于1则$X⇐Y$是无效的强关联规则 。一个特殊的情况，如果X和Y独立，则有$Lift(X⇐Y)=1$，因为此时$P(X|Y)=P(X)$。</p>
+<p>一般来说，要选择一个数据集合中的频繁数据集，则需要自定义评估标准。最常用的评估标准是用自定义的支持度，或者是自定义支持度和置信度的一个组合。</p>
+<h2 id="Apriori算法思想"><a href="#Apriori算法思想" class="headerlink" title="Apriori算法思想"></a>Apriori算法思想</h2><p>对于Apriori算法，我们使用支持度来作为我们判断频繁项集的标准。Apriori算法的目标是找到最大的K项频繁集。这里有两层意思，首先，我们要找到符合支持度标准的频繁集。但是这样的频繁集可能有很多。第二层意思就是我们要找到最大个数的频繁集。比如我们找到符合支持度的频繁集AB和ABE，那么我们会抛弃AB，只保留ABE，因为AB是2项频繁集，而ABE是3项频繁集。那么具体的，Apriori算法是如何做到挖掘K项频繁集的呢？</p>
+<p>Apriori算法采用了迭代的方法，先搜索出候选1项集及对应的支持度，剪枝去掉低于支持度的1项集，得到频繁1项集。然后对剩下的频繁1项集进行连接，得到候选的频繁2项集，筛选去掉低于支持度的候选频繁2项集，得到真正的频繁二项集，以此类推，迭代下去，直到无法找到频繁k+1项集为止，对应的频繁k项集的集合即为算法的输出结果。</p>
+<p>可见这个算法还是很简洁的，第i次的迭代过程包括扫描计算候选频繁i项集的支持度，剪枝得到真正频繁i项集和连接生成候选频繁i+1项集三步。</p>
+<p>我们下面这个简单的例子看看：</p>
+<p><img src="https://images2015.cnblogs.com/blog/1042406/201701/1042406-20170117161036255-1753157633.png" alt="img"></p>
+<p>我们的数据集D有4条记录，分别是134,235,1235和25。现在我们用Apriori算法来寻找频繁k项集，最小支持度设置为50%。首先我们生成候选频繁1项集，包括我们所有的5个数据并计算5个数据的支持度，计算完毕后我们进行剪枝，数据4由于支持度只有25%被剪掉。我们最终的频繁1项集为1235，现在我们链接生成候选频繁2项集，包括12,13,15,23,25,35共6组。此时我们的第一轮迭代结束。</p>
+<p>进入第二轮迭代，我们扫描数据集计算候选频繁2项集的支持度，接着进行剪枝，由于12和15的支持度只有25%而被筛除，得到真正的频繁2项集，包括13,23,25,35。现在我们链接生成候选频繁3项集,123, 135和235共3组，这部分图中没有画出。通过计算候选频繁3项集的支持度，我们发现123和135的支持度均为25%，因此接着被剪枝，最终得到的真正频繁3项集为235一组。由于此时我们无法再进行数据连接，进而得到候选频繁4项集，最终的结果即为频繁3三项集235。</p>
+<h2 id="Aprior算法流程"><a href="#Aprior算法流程" class="headerlink" title="Aprior算法流程"></a>Aprior算法流程</h2><p>下面我们对Aprior算法流程做一个总结。</p>
+<p>输入：数据集合D，支持度阈值αα</p>
+<p>输出：最大的频繁k项集</p>
+<p>1）扫描整个数据集，得到所有出现过的数据，作为候选频繁1项集。k=1，频繁0项集为空集。</p>
+<p>2）挖掘频繁k项集</p>
+<p>​    a) 扫描数据计算候选频繁k项集的支持度</p>
+<p>​    b) 去除候选频繁k项集中支持度低于阈值的数据集,得到频繁k项集。如果得到的频繁k项集为空，则直接返回频繁k-1项集的集合作为算法结果，算法结束。如果得到的频繁k项集只有一项，则直接返回频繁k项集的集合作为算法结果，算法结束。</p>
+<p>​    c) 基于频繁k项集，连接生成候选频繁k+1项集。</p>
+<p>3） 令k=k+1，转入步骤2。</p>
+<p>从算法的步骤可以看出，Aprior算法每轮迭代都要扫描数据集，因此在数据集很大，数据种类很多的时候，算法效率很低。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Aprior算法是一个非常经典的频繁项集的挖掘算法，很多算法都是基于Aprior算法而产生的，包括FP-Tree,GSP, CBA等。这些算法利用了Aprior算法的思想，但是对算法做了改进，数据挖掘效率更好一些，因此现在一般很少直接用Aprior算法来挖掘数据了，但是理解Aprior算法是理解其它Aprior类算法的前提，同时算法本身也不复杂，因此值得好好研究一番。</p>
+<p>不过scikit-learn中并没有频繁集挖掘相关的算法类库，这不得不说是一个遗憾，不知道后面的版本会不会加上。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%91%E7%B9%81%E9%A1%B9%E9%9B%86%E7%9A%84%E8%AF%84%E4%BC%B0%E6%A0%87%E5%87%86"><span class="toc-number">1.</span> <span class="toc-text">频繁项集的评估标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apriori%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3"><span class="toc-number">2.</span> <span class="toc-text">Apriori算法思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Aprior%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">Aprior算法流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&text=Aprior算法"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&title=Aprior算法"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&is_video=false&description=Aprior算法"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Aprior算法&body=Check out this article: http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&title=Aprior算法"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&title=Aprior算法"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&title=Aprior算法"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&title=Aprior算法"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&name=Aprior算法&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/02/26/Aprior%E7%AE%97%E6%B3%95/&t=Aprior算法"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2021-2025
+    CAKGOD
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
