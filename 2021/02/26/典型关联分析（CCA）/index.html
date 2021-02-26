@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="CCA概述在数理统计里面，我们都知道相关系数这个概念。假设有两组一维的数据集X和Y，则相关系数$ρ$的定义为:  \rho(X,Y) &#x3D; \frac{cov(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}其中$cov(X,Y)$是X和Y的协方差，而$D(X),D(Y)$分别是X和Y的方差。相关系数$ρ$的取值为[-1,1],　$ρ$的绝对值越接近于1，则X和Y的线性相关性越高。越接近于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="典型关联分析（CCA）">
+<meta property="og:url" content="http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/index.html">
+<meta property="og:site_name" content="CAKGOD">
+<meta property="og:description" content="CCA概述在数理统计里面，我们都知道相关系数这个概念。假设有两组一维的数据集X和Y，则相关系数$ρ$的定义为:  \rho(X,Y) &#x3D; \frac{cov(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}其中$cov(X,Y)$是X和Y的协方差，而$D(X),D(Y)$分别是X和Y的方差。相关系数$ρ$的取值为[-1,1],　$ρ$的绝对值越接近于1，则X和Y的线性相关性越高。越接近于">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-26T07:06:27.000Z">
+<meta property="article:modified_time" content="2021-02-26T07:47:30.868Z">
+<meta property="article:author" content="CAKGOD">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>典型关联分析（CCA）</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="CAKGOD" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2021/02/25/%E6%96%87%E6%9C%AC%E4%B8%BB%E9%A2%98%E6%A8%A1%E5%9E%8B/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&text=典型关联分析（CCA）"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&title=典型关联分析（CCA）"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&is_video=false&description=典型关联分析（CCA）"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=典型关联分析（CCA）&body=Check out this article: http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&title=典型关联分析（CCA）"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&title=典型关联分析（CCA）"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&title=典型关联分析（CCA）"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&title=典型关联分析（CCA）"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&name=典型关联分析（CCA）&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&t=典型关联分析（CCA）"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CCA%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">CCA概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3"><span class="toc-number">2.</span> <span class="toc-text">算法思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CCA%E7%AE%97%E6%B3%95%E7%9A%84SVD%E6%B1%82%E8%A7%A3"><span class="toc-number">3.</span> <span class="toc-text">CCA算法的SVD求解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CCA%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E5%BE%81%E5%88%86%E8%A7%A3%E6%B1%82%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">CCA算法的特征分解求解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CCA%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">CCA算法流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        典型关联分析（CCA）
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">CAKGOD</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-02-26T07:06:27.000Z" itemprop="datePublished">2021-02-26</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="CCA概述"><a href="#CCA概述" class="headerlink" title="CCA概述"></a>CCA概述</h2><p>在数理统计里面，我们都知道相关系数这个概念。假设有两组一维的数据集X和Y，则相关系数$ρ$的定义为:</p>
+<script type="math/tex; mode=display">
+\rho(X,Y) = \frac{cov(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}</script><p>其中$cov(X,Y)$是X和Y的协方差，而$D(X),D(Y)$分别是X和Y的方差。相关系数$ρ$的取值为[-1,1],　$ρ$的绝对值越接近于1，则X和Y的线性相关性越高。越接近于0，则X和Y的线性相关性越低。</p>
+<p>虽然相关系数可以很好的帮我们分析一维数据的相关性，但是对于高维数据就不能直接使用了。拿上面我们提到的，如果X是包括人身高和体重两个维度的数据，而Y是包括跑步能力和跳远能力两个维度的数据，就不能直接使用相关系数的方法。那我们能不能变通一下呢？CCA给了我们变通的方法。</p>
+<p>CCA使用的方法是将多维的X和Y都用线性变换为1维的X’和Y’，然后再使用相关系数来看X’和Y’的相关性。将数据从多维变到1位，也可以理解为CCA是在进行降维，将高维数据降到1维，然后再用相关系数进行相关性的分析。下面我们看看CCA的算法思想。</p>
+<h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><p>上面我们提到CCA是将高维的两组数据分别降维到1维，然后用相关系数分析相关性。但是有一个问题是，降维的标准是如何选择的呢？回想下主成分分析PCA，降维的原则是投影方差最大；再回想下线性判别分析LDA，降维的原则是同类的投影方差小，异类间的投影方差大。对于我们的CCA，它选择的投影标准是降维到1维后，两组数据的相关系数最大。</p>
+<p>现在我们具体来讨论下CCA的算法思想。假设我们的数据集是X和Y，X为$n1×m$的样本矩阵。Y为$n2×m$的样本矩阵.其中m为样本个数，而$n1,n2$分别为X和Y的特征维度。</p>
+<p>对于X矩阵，我们将其投影到1维，或者说进行线性表示，对应的投影向量或者说线性系数向量为$a$, 对于Y矩阵，我们将其投影到1维，或者说进行线性表示，对应的投影向量或者说线性系数向量为$b$, 这样X ,Y投影后得到的一维向量分别为X’,Y’。我们有:</p>
+<script type="math/tex; mode=display">
+X' = a^TX, Y'=b^TY</script><p>CCA的优化目标是最大化$ρ(X′,Y′)$得到对应的投影向量$a,b$，即:</p>
+<script type="math/tex; mode=display">
+\underbrace{arg\;max}_{a,b}\frac{cov(X',Y')}{\sqrt{D(X')}\sqrt{D(Y')}}</script><p>在投影前，我们一般会把原始数据进行标准化，得到均值为0而方差为1的数据X和Y。这样我们有：</p>
+<script type="math/tex; mode=display">
+cov(X',Y') = cov(a^TX, b^TY) = E(<a^TX, b^TY>) = E((a^TX)(b^TY)^T) = a^TE(XY^T)b\\
+D(X') = D(a^TX) = a^TE(XX^T)a\\
+D(Y') = D(b^TY) = b^TE(YY^T)b</script><p>由于我们的X，Y的均值均为0，则</p>
+<script type="math/tex; mode=display">
+D(X) = cov(X,X) = E(XX^T), D(Y)= cov(Y,Y) = E(YY^T)\\
+cov(X,Y) = E(XY^T),  cov(Y,X) = E(YX^T)</script><p>令$S_{XY}=cov(X,Y)$，则优化目标可以转化为：</p>
+<script type="math/tex; mode=display">
+\underbrace{arg\;max}_{a,b}\frac{a^TS_{XY}b}{\sqrt{ a^TS_{XX}a}\sqrt{b^TS_{YY}b}}</script><p>由于分子分母增大相同的倍数，优化目标结果不变，我们可以采用和SVM类似的优化方法，固定分母，优化分子，具体的转化为：</p>
+<script type="math/tex; mode=display">
+\underbrace{arg\;max}_{a,b}\;\;{a^TS_{XY}b}\\
+s.t. a^TS_{XX}a =1,\; b^TS_{YY}b =1</script><p>也就是说，我们的CCA算法的目标最终转化为一个凸优化过程，只要我们求出了这个优化目标的最大值，就是我们前面提到的多维X和Y的相关性度量，而对应的$a,b$则为降维时的投影向量，或者说线性系数。</p>
+<p>这个函数优化一般有两种方法，第一种是奇异值分解SVD，第二种是特征分解，两者得到的结果一样，下面我们分别讲解。</p>
+<h2 id="CCA算法的SVD求解"><a href="#CCA算法的SVD求解" class="headerlink" title="CCA算法的SVD求解"></a>CCA算法的SVD求解</h2><p>对于上面的优化目标，我们可以做一次矩阵标准化，就可以用SVD来求解了。</p>
+<p>首先，我们令$a=S_{XX}^{-1/2}u, b=S_{YY}^{-1/2}v$,这样我们有：</p>
+<script type="math/tex; mode=display">
+a^TS_{XX}a =1 \Rightarrow u^TS_{XX}^{-1/2}S_{XX}S_{XX}^{-1/2}u =1  \Rightarrow  u^Tu=1\\
+b^TS_{YY}b =1 \Rightarrow v^TS_{YY}^{-1/2}S_{YY}S_{YY}^{-1/2}v=1  \Rightarrow  v^Tv=1\\
+a^TS_{XY}b = u^TS_{XX}^{-1/2}S_{XY}S_{YY}^{-1/2}v</script><p>也就是说，我们的优化目标变成下式：</p>
+<script type="math/tex; mode=display">
+\underbrace{arg\;max}_{u,v}u^TS_{XX}^{-1/2}S_{XY}S_{YY}^{-1/2}v\\s.t. u^Tu =1,\; v^Tv =1</script><p>仔细一看，如果将u和v看做矩阵$M=S_{XX}^{-1/2}S_{XY}S_{YY}^{-1/2}$的某一个奇异值对应的左右奇异向量。那么利用奇异值分解，我们可以得到$M={UΣV}^T$,其中$U,V$分别为M的左奇异向量和右奇异向量组成的矩阵，而$Σ$为M的奇异值组成的对角矩阵。由于$U,V$所有的列都为标准正交基，则$u^TU$和$V^Tv$得到一个只有一个标量值为1，其余标量值为0的向量。此时我们有</p>
+<script type="math/tex; mode=display">
+u^TS_{XX}^{-1/2}S_{XY}S_{YY}^{-1/2}v = u^TU\Sigma V^Tv = \sigma_{uv}</script><p>也就是说我们最大化$u^TS_{XX}^{-1/2}S_{XY}S_{YY}^{-1/2}v$,其实对应的最大值就是某一组左右奇异向量所对应的奇异值的最大值。也就是将M做了奇异值分解后，最大的奇异值就是我们优化目标的最大值，或者说我们的X和Y之间的最大相关系数。利用对应的左右奇异向量$u,v$我们也可以求出我们原始的X和Y的线性系数$a=S_{XX}^{-1/2}u, b=S_{YY}^{-1/2}v$。</p>
+<h2 id="CCA算法的特征分解求解"><a href="#CCA算法的特征分解求解" class="headerlink" title="CCA算法的特征分解求解"></a>CCA算法的特征分解求解</h2><p>特征分解方式就比较传统了，利用拉格朗日函数，优化目标转化为最大化下式：</p>
+<script type="math/tex; mode=display">
+J(a,b) = a^TS_{XY}b -\frac{\lambda}{2}(a^TS_{XX}a-1)-\frac{\theta}{2}(b^TS_{YY}b-1)</script><p>分别对$a,b$求导并令结果为0，我们得到：</p>
+<script type="math/tex; mode=display">
+S_{XY}b-\lambda S_{XX}a=0\\S_{YX}a-\theta S_{YY}b=0</script><p>将上面第一个式子左乘$a^T$,第二个式子左乘$b^T$，并利用$a^TS_{XX}a =1,\; b^TS_{YY}b =1$，我们得到</p>
+<script type="math/tex; mode=display">
+\lambda = \theta = a^TS_{XY}b</script><p>其实也就是说我们的拉格朗日系数就是我们要优化的目标。我们继续将上面的两个式子做整理，第一个式子左乘$S_{XX}^{-1}$,第二个式子左乘$S_{YY}^{-1}$，我们得到：</p>
+<script type="math/tex; mode=display">
+S_{XX}^{-1}S_{XY}b=\lambda a\\S_{YY}^{-1}S_{YX}a = \lambda b</script><p>将上面第二个式子带入第一个式子，我们得到:</p>
+<script type="math/tex; mode=display">
+S_{XX}^{-1}S_{XY}S_{YY}^{-1}S_{YX}a=\lambda^2a</script><p>这个式子我们就熟悉了，这不就是特征分解吗！要求最大的相关系数$λ$,我们只需要对矩阵$N’=S_{YY}^{-1}S_{YX}S_{XX}^{-1}S_{XY}$,做特征分解，找出最大的特征值取平方根即可，此时最大特征值对应的特征向量即为Y的线性系数$b$。</p>
+<p>可以看出特征分解的方法要比SVD复杂，但是两者求得的结果其实是等价的，只要利用SVD和特征分解之间的关系就很容易发现两者最后的结果相同。</p>
+<h2 id="CCA算法流程"><a href="#CCA算法流程" class="headerlink" title="CCA算法流程"></a>CCA算法流程</h2><p>这里我们对CCA的算法流程做一个总结，以SVD方法为准。</p>
+<p>输入：各为m个的样本X和Y，X和Y的维度都大于1</p>
+<p>输出：X,Y的相关系数$ρ$,X和Y的线性系数向量a和b</p>
+<p>1）计算X的方差$S_{XX}$, Y的方差$S_{YY}$，X和Y的协方差$S_{XY}$,Y和X的协方差$S_{YX}=S_{XY}^T$,</p>
+<p>2) 计算矩阵$M=S_{XX}^{-1/2}S_{XY}S_{YY}^{-1/2}$</p>
+<p>3) 对矩阵$M$进行奇异值分解，得到最大的奇异值$ρ$，和最大奇异值对应的左右奇异向量$u,v$,</p>
+<p>4) 计算X和Y的线性系数向量a和b,$a=S_{XX}^{-1/2}u, b=S_{YY}^{-1/2}v$</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>CCA算法广泛的应用于数据相关度的分析，同时还是偏最小二乘法的基础。但是由于它依赖于数据的线性表示，当我们的数据无法线性表示时，CCA就无法使用，此时我们可以利用核函数的思想，将数据映射到高维后，再利用CCA的思想降维到1维，求对应的相关系数和线性关系，这个算法一般称为KCCA。</p>
+<p>此外，我们在算法里只找了相关度最大的奇异值或者特征值，作为数据的相关系数，实际上我们也可以像PCA一样找出第二大奇异值，第三大奇异值，。。。得到第二相关系数和第三相关系数。然后对数据做进一步的相关性分析。但是一般的应用来说，找出第一相关系数就可以了。</p>
+<p>有时候我们的矩阵$S_{XX},S_{YY}$不可逆，此时我们得不到对应的逆矩阵，一般遇到这种情况可以对$S_{XX},S_{YY}$进行正则化，将$S_{XX},S_{YY}$变化为$S_{XX}+\gamma I,S_{YY}+\gamma I$然后继续求逆。其中$γ$为正则化系数。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CCA%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">CCA概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3"><span class="toc-number">2.</span> <span class="toc-text">算法思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CCA%E7%AE%97%E6%B3%95%E7%9A%84SVD%E6%B1%82%E8%A7%A3"><span class="toc-number">3.</span> <span class="toc-text">CCA算法的SVD求解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CCA%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E5%BE%81%E5%88%86%E8%A7%A3%E6%B1%82%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">CCA算法的特征分解求解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CCA%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">CCA算法流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&text=典型关联分析（CCA）"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&title=典型关联分析（CCA）"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&is_video=false&description=典型关联分析（CCA）"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=典型关联分析（CCA）&body=Check out this article: http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&title=典型关联分析（CCA）"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&title=典型关联分析（CCA）"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&title=典型关联分析（CCA）"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&title=典型关联分析（CCA）"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&name=典型关联分析（CCA）&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/02/26/%E5%85%B8%E5%9E%8B%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88CCA%EF%BC%89/&t=典型关联分析（CCA）"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2021-2025
+    CAKGOD
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
